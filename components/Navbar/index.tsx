@@ -7,16 +7,19 @@ const Navbar = () => {
 
 			<ul>
 				<li>
-					<a href="#">Find Mentor / Internship</a>
+					<a href="#">find (Mentor - Internship - Study Group)</a>
 				</li>
 				<li>
-					<a href="#">Start Mentoring</a>
+					<a href="#">be a mentor</a>
 				</li>
 				<li>
-					<a href="#">Join Groups</a>
+					<a href="#">join groups</a>
 				</li>
 				<li>
 					<a href="#">Post Internship</a>
+				</li>
+				<li>
+					<a href="#">Give us your feedback</a>
 				</li>
 			</ul>
 
