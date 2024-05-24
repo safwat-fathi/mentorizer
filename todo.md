@@ -12,7 +12,11 @@
 
 - landing
 - support & users suggestions
+- user profile 
+- user settings (theme, etc...)
 
-## app essential features
+## business requirements
+
+## functional requirements
 
 - i18n 

@@ -1,12 +1,8 @@
-"use client";
-
-import ThemeToggler from "../ThemeToggler";
-
-// ! handle routes and use Link component
+import Link from "next/link";
 
 const Navbar = () => {
 	return (
-		<div className="navbar bg-base-100">
+		<div className="navbar bg-base-100 container mx-auto">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -30,58 +26,79 @@ const Navbar = () => {
 						className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
 					>
 						<li>
-							<a>Become a mentor</a>
+							<Link href="/apply-as-mentor">Become a mentor</Link>
 						</li>
 						<li>
-							<a>Find</a>
+							<Link href="/find">Find</Link>
 							<ul className="p-2">
 								<li>
-									<a>Mentors</a>
+									<Link href="/find?q=mentors">Mentors</Link>
 								</li>
 								<li>
-									<a>Internships</a>
+									<Link href="/find?q=internships">Internships</Link>
 								</li>
 								<li>
-									<a>Study Groups</a>
+									<Link href="/find?q=study_groups">Study Groups</Link>
 								</li>
 							</ul>
 						</li>
+
 						<li>
-							<a>Post internships</a>
+							<Link href="/post-internship">Post internships</Link>
 						</li>
+
+						<div className="md:hidden">
+							<div className="divider"></div>
+
+							<li className="flex flex-col gap-2">
+								<Link href="/auth/login" className="btn btn-neutral">
+									Login
+								</Link>
+								<Link href="/auth/signup" className="btn btn-primary">
+									Signup
+								</Link>
+							</li>
+						</div>
 					</ul>
 				</div>
-				<a className="btn btn-ghost text-xl">daisyUI</a>
+				<Link href="/" className="btn btn-ghost text-xl">
+					Mentorizer
+				</Link>
 			</div>
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal px-1">
 					<li>
-						<a>Become a mentor</a>
+						<Link href="/apply-as-mentor">Become a mentor</Link>
 					</li>
 					<li>
 						<details>
 							<summary>Find</summary>
 							<ul className="p-2">
 								<li>
-									<a>Mentors</a>
+									<Link href="/find?q=mentors">Mentors</Link>
 								</li>
 								<li>
-									<a>Internships</a>
+									<Link href="/find?q=internships">Internships</Link>
 								</li>
 								<li>
-									<a>Study Groups</a>
+									<Link href="/find?q=study_groups">Study Groups</Link>
 								</li>
 							</ul>
 						</details>
 					</li>
 					<li>
-						<a>Post internships</a>
+						<Link href="/post-internship">Post internships</Link>
 					</li>
 				</ul>
 			</div>
-			<div className="navbar-end flex gap-2">
-				<ThemeToggler />
-				<a className="btn">Button</a>
+
+			<div className="hidden md:flex navbar-end gap-2">
+				<Link href="/auth/login" className="btn btn-neutral">
+					Login
+				</Link>
+				<Link href="/auth/signup" className="btn btn-primary">
+					Signup
+				</Link>
 			</div>
 		</div>
 	);
