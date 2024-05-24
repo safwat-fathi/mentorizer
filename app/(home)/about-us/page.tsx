@@ -1,13 +1,14 @@
 import Button from "@/components/Button";
 import TextInput from "@/components/Inputs/TextInput";
 import Textarea from "@/components/Inputs/Textarea";
+import Modal from "@/components/Modal";
 import Image from "next/image";
 
-const Landing = () => {
+const AboutUs = () => {
 	return (
 		<main>
-			<h1>This is landing page</h1>
-			<Button>asdasd</Button>
+			<h1>This is About Us page</h1>
+			{/* <Button>asdasd</Button>
 			<TextInput
 				placeholder="Search"
 				label="search"
@@ -15,8 +16,10 @@ const Landing = () => {
 			/>
 
 			<Textarea placeholder="kkkkkk" rows={4} />
+			 */}
+			<Modal />
 		</main>
 	);
 };
 
-export default Landing;
+export default AboutUs;

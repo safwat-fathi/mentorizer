@@ -1,120 +1,89 @@
-import clsx from "clsx";
-import Image from "next/image";
+"use client";
 
-// ! handle responsive
+import ThemeToggler from "../ThemeToggler";
+
 // ! handle routes and use Link component
 
 const Navbar = () => {
 	return (
-		<nav aria-label="Global">
-			<div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-				<div className="flex h-16 items-center justify-between">
-					<div className="md:flex md:items-center md:gap-12">
-						<a className="block text-teal-600" href="#">
-							<span className="sr-only">Home</span>
-							<Image src="/logo.svg" alt="logo" width={48} height={48} />
-						</a>
+		<div className="navbar bg-base-100">
+			<div className="navbar-start">
+				<div className="dropdown">
+					<div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							className="h-5 w-5"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
+								d="M4 6h16M4 12h8m-8 6h16"
+							/>
+						</svg>
 					</div>
-
-					<div className={clsx("hidden md:block")}>
-						<ul className="flex items-center gap-6 text-sm">
-							<li>
-								<a
-									className="text-gray-500 transition hover:text-gray-500/75"
-									href="#"
-								>
-									Find a Mentor
-								</a>
-							</li>
-
-							<li>
-								<a
-									className="text-gray-500 transition hover:text-gray-500/75"
-									href="#"
-								>
-									Find an Internship
-								</a>
-							</li>
-
-							<li>
-								<a
-									className="text-gray-500 transition hover:text-gray-500/75"
-									href="#"
-								>
-									join Study Groups
-								</a>
-							</li>
-
-							<li>
-								<a
-									className="text-gray-500 transition hover:text-gray-500/75"
-									href="#"
-								>
-									be a mentor
-								</a>
-							</li>
-
-							<li>
-								<a
-									className="text-gray-500 transition hover:text-gray-500/75"
-									href="#"
-								>
-									Post Internship
-								</a>
-							</li>
-
-							<li>
-								<a
-									className="text-gray-500 transition hover:text-gray-500/75"
-									href="#"
-								>
-									about us
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<div className="flex items-center gap-4">
-						<div className="sm:flex sm:gap-4">
-							<a
-								className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-								href="#"
-							>
-								Login
-							</a>
-
-							<div className="hidden sm:flex">
-								<a
-									className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-									href="#"
-								>
-									Register
-								</a>
-							</div>
-						</div>
-
-						<div className="block md:hidden">
-							<button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									className="h-5 w-5"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M4 6h16M4 12h16M4 18h16"
-									/>
-								</svg>
-							</button>
-						</div>
-					</div>
+					<ul
+						tabIndex={0}
+						className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+					>
+						<li>
+							<a>Become a mentor</a>
+						</li>
+						<li>
+							<a>Find</a>
+							<ul className="p-2">
+								<li>
+									<a>Mentors</a>
+								</li>
+								<li>
+									<a>Internships</a>
+								</li>
+								<li>
+									<a>Study Groups</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a>Post internships</a>
+						</li>
+					</ul>
 				</div>
+				<a className="btn btn-ghost text-xl">daisyUI</a>
 			</div>
-		</nav>
+			<div className="navbar-center hidden lg:flex">
+				<ul className="menu menu-horizontal px-1">
+					<li>
+						<a>Become a mentor</a>
+					</li>
+					<li>
+						<details>
+							<summary>Find</summary>
+							<ul className="p-2">
+								<li>
+									<a>Mentors</a>
+								</li>
+								<li>
+									<a>Internships</a>
+								</li>
+								<li>
+									<a>Study Groups</a>
+								</li>
+							</ul>
+						</details>
+					</li>
+					<li>
+						<a>Post internships</a>
+					</li>
+				</ul>
+			</div>
+			<div className="navbar-end flex gap-2">
+				<ThemeToggler />
+				<a className="btn">Button</a>
+			</div>
+		</div>
 	);
 };
 
