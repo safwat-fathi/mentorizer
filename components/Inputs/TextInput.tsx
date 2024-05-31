@@ -3,11 +3,19 @@ import { InputHTMLAttributes, ReactNode } from "react";
 type Props = {
 	label?: ReactNode | string;
 	icon?: ReactNode;
+	className?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const TextInput = ({ placeholder, id, label, icon, ...rest }: Props) => {
+const TextInput = ({
+	className,
+	placeholder,
+	id,
+	label,
+	icon,
+	...rest
+}: Props) => {
 	return (
-		<div className="relative">
+		<div className={[className, "relative"].join(" ")}>
 			<label htmlFor={id} className="sr-only">
 				{label}
 			</label>
@@ -16,11 +24,11 @@ const TextInput = ({ placeholder, id, label, icon, ...rest }: Props) => {
 				type="text"
 				id={id}
 				placeholder={placeholder}
-				className="w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+				className="input input-bordered w-full"
 				{...rest}
 			/>
 
-			<span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
+			<span className="absolute inset-y-0 end-0 grid w-10 place-content-center pointer-events-none">
 				<button type="button" className="text-gray-600 hover:text-gray-700">
 					<span className="sr-only">{placeholder}</span>
 					{icon}

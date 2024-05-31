@@ -19,9 +19,9 @@ const Hero = () => {
 
 					<div className="flex justify-start gap-2">
 						<TextInput
+							className="w-96"
 							placeholder="Enter your email"
 							type="text"
-							className="md:w-72"
 						/>
 						<button className="btn btn-primary">Get Started</button>
 					</div>
@@ -31,8 +31,8 @@ const Hero = () => {
 					<Image
 						src="/Hero-colored.png"
 						alt="hero"
-						width={300}
-						height={300}
+						width={500}
+						height={500}
 						className="w-full"
 					/>
 				</div>

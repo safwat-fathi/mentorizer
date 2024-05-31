@@ -11,7 +11,6 @@ const Modal = () => {
 
 	return (
 		<>
-			{/* Open the modal using document.getElementById('ID').showModal() method */}
 			<button className="btn" onClick={openModal}>
 				open modal
 			</button>

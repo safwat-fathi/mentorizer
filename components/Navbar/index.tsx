@@ -26,7 +26,7 @@ const Navbar = () => {
 						className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
 					>
 						<li>
-							<Link href="/apply-as-mentor">Become a mentor</Link>
+							<Link href="/apply-as-mentor">Start Mentoring</Link>
 						</li>
 						<li>
 							<Link href="/find">Find</Link>
@@ -35,16 +35,19 @@ const Navbar = () => {
 									<Link href="/find?q=mentors">Mentors</Link>
 								</li>
 								<li>
+									<Link href="/find?q=circles">Circles</Link>
+								</li>
+								<li>
 									<Link href="/find?q=internships">Internships</Link>
 								</li>
 								<li>
-									<Link href="/find?q=study_groups">Study Groups</Link>
+									<Link href="/find?q=interns">Interns</Link>
 								</li>
 							</ul>
 						</li>
 
 						<li>
-							<Link href="/post-internship">Post internships</Link>
+							<Link href="/post-internship">Post Internships</Link>
 						</li>
 
 						<div className="md:hidden">
@@ -68,26 +71,29 @@ const Navbar = () => {
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal px-1">
 					<li>
-						<Link href="/apply-as-mentor">Become a mentor</Link>
+						<Link href="/apply-as-mentor">Start Mentoring</Link>
 					</li>
 					<li>
 						<details>
 							<summary>Find</summary>
-							<ul className="p-2">
+							<ul className="p-2 w-52">
 								<li>
 									<Link href="/find?q=mentors">Mentors</Link>
+								</li>
+								<li>
+									<Link href="/find?q=circles">Circles</Link>
 								</li>
 								<li>
 									<Link href="/find?q=internships">Internships</Link>
 								</li>
 								<li>
-									<Link href="/find?q=study_groups">Study Groups</Link>
+									<Link href="/find?q=interns">Interns</Link>
 								</li>
 							</ul>
 						</details>
 					</li>
 					<li>
-						<Link href="/post-internship">Post internships</Link>
+						<Link href="/post-internship">Post Internships</Link>
 					</li>
 				</ul>
 			</div>
