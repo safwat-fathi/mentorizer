@@ -1,7 +1,7 @@
 import TextInput from "@/components/Inputs/TextInput";
 import Image from "next/image";
 
-const Hero = () => {
+const Mentee = () => {
 	return (
 		<section className="hero min-h-[calc(100vh-68px)] bg-base-200">
 			<div className="container mx-auto flex justify-between items-center hero-content text-center">
@@ -41,4 +41,4 @@ const Hero = () => {
 	);
 };
 
-export default Hero;
+export default Mentee;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
 	title: "Mentorizer",
@@ -17,6 +18,7 @@ export default function HomeLayout({
 		<>
 			<Navbar />
 			{children}
+			<Footer />
 		</>
 	);
 }

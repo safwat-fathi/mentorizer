@@ -1,9 +1,10 @@
+import Select from "@/components/Inputs/Select";
 import TextInput from "@/components/Inputs/TextInput";
 import Image from "next/image";
 
 const Hero = () => {
 	return (
-		<section className="hero min-h-[calc(100vh-68px)] bg-base-200">
+		<section className="hero min-h-[calc(100vh-68px)]">
 			<div className="container mx-auto flex justify-between items-center hero-content text-center">
 				<div className="max-w-prose">
 					<h1 className="text-5xl font-bold text-start">
@@ -18,16 +19,21 @@ const Hero = () => {
 					</h2>
 
 					<div className="flex justify-start gap-2">
-						<TextInput
-							placeholder="Enter your email"
-							type="text"
-							className="md:w-72"
+						<Select
+							options={["Mentors", "Circles", "Internships"]}
+							placeholder="Search For..."
 						/>
+
+						<Select
+							options={["All", "OOP", "TypeScript", "Database design"]}
+							placeholder="Select skill"
+						/>
+
 						<button className="btn btn-primary">Get Started</button>
 					</div>
 				</div>
 
-				<div className="hidden md:flex flex-col gap-4">
+				<div className="hidden lg:flex flex-col gap-4">
 					<Image
 						src="/Hero-colored.png"
 						alt="hero"
