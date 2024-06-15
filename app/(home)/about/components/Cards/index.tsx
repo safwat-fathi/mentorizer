@@ -5,7 +5,7 @@ const Cards = () => {
 			<div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-4">
 				<div className="card w-96 lg:w-full bg-base-100 shadow-xl">
 					<div className="card-body items-center text-center">
-						<h2 className="card-title text-3xl">Mentee ?</h2>
+						<h2 className="card-title text-3xl">What is Circles?</h2>
 						<p>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum,
 							sed delectus numquam minima ut cum explicabo officiis soluta,
