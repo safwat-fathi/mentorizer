@@ -1,15 +1,24 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const Circles = () => {
 	return (
-		<section className="container mx-auto">
-			<div className="py-6 flex flex-col items-center gap-6">
-				<h2 className="text-4xl font-bold">Join Circles</h2>
-				<h3 className="text-lg max-w-xs text-center">
-					You don't know what you don't know. Now you can know what you don't
-					know.
-				</h3>
+		<section className="container mx-auto mb-16">
+			<div className="flex justify-center mb-10">
+				<div className="flex flex-col gap-4">
+					<div className="flex gap-4">
+						<div className="w-2 h-auto bg-primary" />
+						<h2 className="text-5xl capitalize font-bold">join circles</h2>
+					</div>
+
+					<div className="flex flex-col gap-2">
+						<h3 className="text-2xl italic max-w-md text-justify">
+							You don't know what you don't know
+						</h3>
+						<h3 className="text-2xl px-2 py-1 max-w-md text-justify bg-primary text-primary-content">
+							Now you can know what you don't know.
+						</h3>
+					</div>
+				</div>
 			</div>
 
 			<div className="grid grid-cols-1 lg:grid-cols-2">
@@ -48,8 +57,6 @@ const Circles = () => {
 							journey.
 						</li>
 					</ul>
-
-					<Link href="/about/circles">Learn More</Link>
 				</div>
 			</div>
 		</section>
