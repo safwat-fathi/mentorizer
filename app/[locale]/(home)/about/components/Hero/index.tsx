@@ -1,5 +1,4 @@
-import Select from "@/components/Inputs/Select";
-import TextInput from "@/components/Inputs/TextInput";
+import Select from "@/lib/components/Inputs/Select";
 import Image from "next/image";
 
 const Hero = () => {
@@ -35,7 +34,7 @@ const Hero = () => {
 
 				<div className="hidden lg:flex flex-col gap-4">
 					<Image
-						src="/Hero-colored.png"
+						src="/hero.png"
 						alt="hero"
 						width={300}
 						height={300}

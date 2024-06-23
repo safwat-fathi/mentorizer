@@ -1,4 +1,5 @@
-import TextInput from "@/components/Inputs/TextInput";
+import Select from "@/lib/components/Inputs/Select";
+import TextInput from "@/lib/components/Inputs/TextInput";
 
 const CTA = () => {
 	return (
@@ -13,9 +14,14 @@ const CTA = () => {
 						future of new generations of the tech industry.
 					</p>
 
-					<div className="flex gap-4 items-center">
-						<TextInput placeholder="Email" />
-						<button className="btn btn-accent">Get Started</button>
+					<div className="grid grid-cols-4 gap-4 items-center">
+						<TextInput className="col-span-2" placeholder="Email" />
+						<Select
+							className="col-span-1"
+							options={["Mentor", "Mentee", "Company"]}
+							placeholder="Join as..."
+						/>
+						<button className="btn btn-accent col-span-1">Join us</button>
 					</div>
 				</div>
 			</div>

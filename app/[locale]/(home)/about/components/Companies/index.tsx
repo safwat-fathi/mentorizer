@@ -1,4 +1,4 @@
-import TextInput from "@/components/Inputs/TextInput";
+import TextInput from "@/lib/components/Inputs/TextInput";
 import Image from "next/image";
 
 const Hero = () => {

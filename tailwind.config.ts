@@ -4,10 +4,7 @@ import forms from "@tailwindcss/forms";
 import daisyui from "daisyui";
 
 const config: Config = {
-	content: [
-		"./components/**/*.{js,ts,jsx,tsx,mdx}",
-		"./app/**/*.{js,ts,jsx,tsx,mdx}",
-	],
+	content: ["./lib/components/**/*.{ts,tsx}", "./app/[locale]/**/*.{ts,tsx}"],
 	theme: {
 		extend: {
 			backgroundImage: {
