@@ -12,8 +12,6 @@ export default function Providers({
 }: PropsWithChildren<{
 	params: { locale: string };
 }>) {
-	// const position = params.locale === "ar" ? "top-right" : "top-left";
-
 	return (
 		<>
 			<I18nProviderClient

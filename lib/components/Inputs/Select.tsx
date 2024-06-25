@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { InputHTMLAttributes } from "react";
 
 type Props = {
@@ -5,11 +6,15 @@ type Props = {
 	options: any[];
 } & InputHTMLAttributes<HTMLSelectElement>;
 
-const Select = ({ placeholder, options }: Props) => {
+const Select = ({ className, placeholder, options, ...props }: Props) => {
 	return (
-		<select className="select select-success w-full max-w-xs">
+		<select
+			className={clsx(`select select-success w-full max-w-xs ${className}`)}
+			defaultValue=""
+			{...props}
+		>
 			{placeholder && (
-				<option disabled selected>
+				<option value="" disabled>
 					{placeholder}
 				</option>
 			)}
