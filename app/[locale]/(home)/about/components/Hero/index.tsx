@@ -1,3 +1,4 @@
+import Button from "@/lib/components/Button";
 import Select from "@/lib/components/Inputs/Select";
 import Image from "next/image";
 
@@ -28,7 +29,7 @@ const Hero = () => {
 							placeholder="Select skill"
 						/>
 
-						<button className="btn btn-primary">Get Started</button>
+						<Button variant="primary">Get Started</Button>
 					</div>
 				</div>
 

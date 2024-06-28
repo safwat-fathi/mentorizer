@@ -12,20 +12,21 @@ const TextInput = ({
 	id,
 	label,
 	icon,
-	...rest
+	type,
+	...props
 }: Props) => {
 	return (
-		<div className={[className, "relative"].join(" ")}>
+		<div role="textbox" className={`relative ${className}`}>
 			<label htmlFor={id} className="sr-only">
 				{label}
 			</label>
 
 			<input
-				type="text"
+				type={type}
 				id={id}
 				placeholder={placeholder}
 				className="input input-bordered w-full"
-				{...rest}
+				{...props}
 			/>
 
 			<span className="absolute inset-y-0 end-0 grid w-10 place-content-center pointer-events-none">

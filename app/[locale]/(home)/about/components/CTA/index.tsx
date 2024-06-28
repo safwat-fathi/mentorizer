@@ -1,20 +1,50 @@
 "use client";
 
+import Button from "@/lib/components/Button";
 import Select from "@/lib/components/Inputs/Select";
 import TextInput from "@/lib/components/Inputs/TextInput";
+import Toast from "@/lib/components/Toast";
+import useApi from "@/lib/hooks/useApi";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 // todo: add loading UI
-// todo: add feedback UI
+// todo: redirect to thanks page
 
 const CTA = () => {
+	const router = useRouter();
 	const [email, setEmail] = useState("");
 	const [joinAs, setJoinAs] = useState("");
+	const { isLoading, mutate } = useApi(`/api/sheets`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			email,
+			joinAs,
+		}),
+	});
 
 	const handleJoin = async () => {
-		await fetch(`/api/sheets?email=${email}&joinAs=${joinAs}`, {
-			method: "GET",
-		});
+		try {
+			if (!email || !joinAs) {
+				toast.error(
+					<Toast variant="error" message="Please fill out all fields" />
+				);
+				return;
+			}
+
+			await mutate();
+
+			setEmail("");
+			setJoinAs("");
+
+			router.push(`/thank-you?email=${email}`);
+		} catch (err: any) {
+			toast.error(err.message || "Sorry, something went wrong");
+		}
 	};
 
 	return (
@@ -31,6 +61,8 @@ const CTA = () => {
 
 					<div className="grid grid-cols-4 gap-4 items-center">
 						<TextInput
+							label="Email"
+							type="email"
 							className="col-span-2"
 							placeholder="Email"
 							value={email}
@@ -43,9 +75,15 @@ const CTA = () => {
 							value={joinAs}
 							onChange={e => setJoinAs(e.target.value)}
 						/>
-						<button onClick={handleJoin} className="btn btn-accent col-span-1">
+						<Button
+							type="submit"
+							onClick={handleJoin}
+							variant="accent"
+							loading={isLoading}
+							className="col-span-1"
+						>
 							Join us
-						</button>
+						</Button>
 					</div>
 				</div>
 			</div>

@@ -1,12 +1,9 @@
 import { SheetsService } from "@/lib/services/sheets.service";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
 	try {
-		const email = req.nextUrl.searchParams.get("email");
-		console.log("🚀 ~ GET ~ email:", email);
-		const joinAs = req.nextUrl.searchParams.get("joinAs");
-		console.log("🚀 ~ GET ~ joinAs:", joinAs);
+		const { email, joinAs } = await req.json();
 
 		if (!email || !joinAs) {
 			return NextResponse.json(
@@ -27,11 +24,11 @@ export async function GET(req: NextRequest) {
 				{ success: true, message: "Added new row successfully" },
 				{ status: 200 }
 			);
-		else
-			return NextResponse.json(
-				{ success: false, message: "Added new row failed" },
-				{ status: 400 }
-			);
+
+		return NextResponse.json(
+			{ success: false, message: "Added new row failed" },
+			{ status: 400 }
+		);
 	} catch (err) {
 		return NextResponse.json(
 			{ success: false, message: `${err}` },
