@@ -1,7 +1,27 @@
+"use client";
+
 import Link from "next/link";
 import LangSwitcher from "../LangSwitcher";
+import { useEffect, useRef } from "react";
+import useOutsideClick from "@/lib/hooks/useOutsiedClick";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const Navbar = () => {
+	const pathname = usePathname();
+	const searchparams = useSearchParams();
+
+	const detailsRef = useRef<HTMLDetailsElement>(null);
+
+	const closeDropdown = () => {
+		detailsRef.current?.removeAttribute("open");
+	};
+
+	useOutsideClick(detailsRef, closeDropdown);
+
+	useEffect(() => {
+		detailsRef.current?.removeAttribute("open");
+	}, [pathname, searchparams]);
+
 	return (
 		<div className="bg-white">
 			<div className="navbar bg-base-100 container mx-auto">
@@ -25,7 +45,7 @@ const Navbar = () => {
 						</div>
 						<ul
 							tabIndex={0}
-							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40"
 						>
 							<li>
 								<Link href="/apply-as-mentor">Start Mentoring</Link>
@@ -76,7 +96,7 @@ const Navbar = () => {
 							<Link href="/apply-as-mentor">Start Mentoring</Link>
 						</li>
 						<li>
-							<details>
+							<details ref={detailsRef}>
 								<summary>Find</summary>
 								<ul className="p-2 w-52">
 									<li>
@@ -85,18 +105,18 @@ const Navbar = () => {
 									<li>
 										<Link href="/find?q=circles">Circles</Link>
 									</li>
-									<li>
+									{/* <li>
 										<Link href="/find?q=internships">Internships</Link>
-									</li>
-									<li>
+									</li> */}
+									{/* <li>
 										<Link href="/find?q=interns">Interns</Link>
-									</li>
+									</li> */}
 								</ul>
 							</details>
 						</li>
-						<li>
+						{/* <li>
 							<Link href="/post-internship">Post Internships</Link>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 

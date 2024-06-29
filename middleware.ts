@@ -7,7 +7,20 @@ const I18nMiddleware = createI18nMiddleware({
 	defaultLocale: "ar",
 });
 
+const isHomePathname = (url: string) => {
+	const urlPattern = /^\/(en|ar)?$/;
+	return urlPattern.test(url);
+};
+
 export async function middleware(req: NextRequest) {
+	const { pathname } = req.nextUrl;
+
+	const isHome = isHomePathname(pathname);
+
+	if (isHome) {
+		return NextResponse.redirect(new URL(`/about`, req.url));
+	}
+
 	return I18nMiddleware(req);
 }
 
