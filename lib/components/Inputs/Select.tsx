@@ -9,7 +9,9 @@ type Props = {
 const Select = ({ className, placeholder, options, ...props }: Props) => {
 	return (
 		<select
-			className={clsx(`select select-success w-full max-w-xs ${className}`)}
+			className={clsx(
+				`select select-success w-full max-w-xs ps-4 pe-8 ${className}`
+			)}
 			defaultValue=""
 			{...props}
 		>

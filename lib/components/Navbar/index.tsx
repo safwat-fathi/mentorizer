@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LangSwitcher from "../LangSwitcher";
 
 const Navbar = () => {
 	return (
@@ -51,7 +52,7 @@ const Navbar = () => {
 								<Link href="/post-internship">Post Internships</Link>
 							</li>
 
-							<div className="md:hidden">
+							{/* <div className="md:hidden">
 								<div className="divider"></div>
 
 								<li className="flex flex-col gap-2">
@@ -62,7 +63,7 @@ const Navbar = () => {
 										Signup
 									</Link>
 								</li>
-							</div>
+							</div> */}
 						</ul>
 					</div>
 					<Link href="/" className="btn btn-ghost text-xl">
@@ -100,12 +101,13 @@ const Navbar = () => {
 				</div>
 
 				<div className="hidden md:flex navbar-end gap-2">
-					<Link href="/auth/login" className="btn btn-neutral">
+					<LangSwitcher />
+					{/* <Link href="/auth/login" className="btn btn-neutral">
 						Login
 					</Link>
 					<Link href="/auth/signup" className="btn btn-primary">
 						Signup
-					</Link>
+					</Link> */}
 				</div>
 			</div>
 		</div>

@@ -6,7 +6,6 @@ import { I18nProviderClient } from "@/locales/client";
 
 import PageLoader from "../components/Loaders/PageLoader";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function Providers({
 	children,
@@ -18,7 +17,7 @@ export default function Providers({
 
 	return (
 		<>
-			<ToastContainer className="toast" rtl={isRTL} hideProgressBar />
+			<ToastContainer rtl={isRTL} />
 			<I18nProviderClient
 				locale={params.locale}
 				fallback={

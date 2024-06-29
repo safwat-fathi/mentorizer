@@ -3,7 +3,6 @@
 import Button from "@/lib/components/Button";
 import Select from "@/lib/components/Inputs/Select";
 import TextInput from "@/lib/components/Inputs/TextInput";
-import Toast from "@/lib/components/Toast";
 import useApi from "@/lib/hooks/useApi";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -12,10 +11,17 @@ import { toast } from "react-toastify";
 // todo: add loading UI
 // todo: redirect to thanks page
 
+const isValidEmail = (email: string) => {
+	const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+	return pattern.test(email);
+};
+
 const CTA = () => {
 	const router = useRouter();
+
 	const [email, setEmail] = useState("");
 	const [joinAs, setJoinAs] = useState("");
+
 	const { isLoading, mutate } = useApi(`/api/sheets`, {
 		method: "POST",
 		headers: {
@@ -30,9 +36,12 @@ const CTA = () => {
 	const handleJoin = async () => {
 		try {
 			if (!email || !joinAs) {
-				toast.error(
-					<Toast variant="error" message="Please fill out all fields" />
-				);
+				toast.error("Please fill out all fields");
+				return;
+			}
+
+			if (!isValidEmail(email)) {
+				toast.error("Please use a valid email");
 				return;
 			}
 
@@ -41,7 +50,7 @@ const CTA = () => {
 			setEmail("");
 			setJoinAs("");
 
-			router.push(`/thank-you?email=${email}`);
+			router.push(`/thank-you?email=${email}&joinAs=${joinAs}`);
 		} catch (err: any) {
 			toast.error(err.message || "Sorry, something went wrong");
 		}

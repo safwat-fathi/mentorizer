@@ -7,7 +7,7 @@ type Props = {
 	};
 };
 
-const EarlyJoinConfirm = ({ searchParams }: Props) => {
+const ThankYou = ({ searchParams }: Props) => {
 	console.log(searchParams);
 
 	if (!searchParams.joinAs || !searchParams.email) {
@@ -38,8 +38,10 @@ const EarlyJoinConfirm = ({ searchParams }: Props) => {
 				</h2>
 
 				<div className="bg-primary text-primary-content p-4 flex flex-col gap-2">
-					<h2 className="text-2xl font-medium">Email: example@gmail.com</h2>
-					<h2 className="text-2xl font-medium">Join as: Mentor</h2>
+					<h2 className="text-2xl font-medium">Email: {searchParams.email}</h2>
+					<h2 className="text-2xl font-medium">
+						Join as: {searchParams.joinAs}
+					</h2>
 				</div>
 
 				<h2 className="text-2xl font-medium">
@@ -51,4 +53,4 @@ const EarlyJoinConfirm = ({ searchParams }: Props) => {
 	);
 };
 
-export default EarlyJoinConfirm;
+export default ThankYou;
