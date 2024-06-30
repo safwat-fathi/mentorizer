@@ -2,21 +2,25 @@
 
 ## components
 
-- Hero section
-- nav
-- footer
-- card
-- inputs
+- [x] Hero section
+- [x] nav
+- [x] footer
+- [ ] card
+- [ ] inputs
 
 ## pages
 
-- landing
-- support & users suggestions
-- user profile 
-- user settings (theme, etc...)
+- [x] about
+- [ ] support & users suggestions
+- [ ] user profile 
+- [ ] login
+- [ ] register
+- [ ] forgot password
+- [x] 404
+- [x] 500
 
 ## business requirements
 
 ## functional requirements
 
-- i18n 
+- [ ] i18n 

@@ -8,8 +8,6 @@ type Props = {
 };
 
 const ThankYou = ({ searchParams }: Props) => {
-	console.log(searchParams);
-
 	if (!searchParams.joinAs || !searchParams.email) {
 		notFound();
 	}
@@ -27,11 +25,8 @@ const ThankYou = ({ searchParams }: Props) => {
 					We are currently working on to make it happen really soon.
 				</h2>
 
-				{/* <h2 className="text-2xl font-medium">
-					We might contact you with any updates we make or your help that we
-					might need from you to make Mentorizer reality and hopefully make a
-					difference.
-				</h2> */}
+				<div className="peer">Peer One</div>
+				<div className="peer-hover:bg-primary">Peer Two</div>
 
 				<h2 className="text-4xl font-medium">
 					Your early join request details:

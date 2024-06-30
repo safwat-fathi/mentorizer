@@ -4,17 +4,13 @@ import Button from "@/lib/components/Button";
 import Select from "@/lib/components/Inputs/Select";
 import TextInput from "@/lib/components/Inputs/TextInput";
 import useApi from "@/lib/hooks/useApi";
+import { isValidEmail } from "@/lib/utils/validations";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 // todo: add loading UI
 // todo: redirect to thanks page
-
-const isValidEmail = (email: string) => {
-	const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-	return pattern.test(email);
-};
 
 const CTA = () => {
 	const router = useRouter();
@@ -72,11 +68,12 @@ const CTA = () => {
 						<TextInput
 							label="Email"
 							type="email"
-							className="col-span-2"
+							containerClassName="col-span-2"
 							placeholder="Email"
 							value={email}
 							onChange={e => setEmail(e.target.value)}
 						/>
+
 						<Select
 							className="col-span-1"
 							options={["Mentor", "Mentee", "Company"]}

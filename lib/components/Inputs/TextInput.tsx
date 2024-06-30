@@ -3,11 +3,13 @@ import { InputHTMLAttributes, ReactNode } from "react";
 type Props = {
 	label?: ReactNode | string;
 	icon?: ReactNode;
-	className?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+	containerClassName?: string;
+	inputCLassName?: string;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "className">;
 
 const TextInput = ({
-	className,
+	containerClassName,
+	inputCLassName,
 	placeholder,
 	id,
 	label,
@@ -16,7 +18,7 @@ const TextInput = ({
 	...props
 }: Props) => {
 	return (
-		<div role="textbox" className={`relative ${className}`}>
+		<div role="textbox" className={`relative ${containerClassName}`}>
 			<label htmlFor={id} className="sr-only">
 				{label}
 			</label>
@@ -25,7 +27,7 @@ const TextInput = ({
 				type={type}
 				id={id}
 				placeholder={placeholder}
-				className="input input-bordered w-full"
+				className={`input input-bordered w-full ${inputCLassName}`}
 				{...props}
 			/>
 
