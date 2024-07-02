@@ -1,50 +1,75 @@
 import Button from "@/lib/components/Button";
 import Select from "@/lib/components/Inputs/Select";
+import { getScopedI18n } from "@/locales/server";
 import Image from "next/image";
 
-const Hero = () => {
-	return (
-		<section className="hero min-h-[calc(100vh-68px)]">
-			<div className="container mx-auto flex justify-between items-center hero-content text-center">
-				<div className="max-w-prose">
-					<h1 className="text-5xl font-bold text-start">
-						Level Up Your Coding Skills with Expert Mentorship
-					</h1>
-					<h2 className="text-xl py-6 text-start">
-						Get personalized <span className="font-bold">mentor guidance</span>{" "}
-						from experienced developers, find{" "}
-						<span className="font-bold">circles</span> to grow together, land{" "}
-						<span className="font-bold">internships</span>, and{" "}
-						<span className="font-bold">accelerate</span> your tech journey.
-					</h2>
+const Hero = async () => {
+  const tAbout = await getScopedI18n("about");
+  const tGlobal = await getScopedI18n("global");
 
-					<div className="flex justify-start gap-2">
-						<Select
-							options={["Mentors", "Circles", "Internships"]}
-							placeholder="Search For..."
-						/>
+  const SEARCH_OPTIONS = [
+    { value: "Mentors", label: "Mentors" },
+    { value: "Circles", label: "Circles" },
+    { value: "Internships", label: "Internships" },
+  ];
 
-						<Select
-							options={["All", "OOP", "TypeScript", "Database design"]}
-							placeholder="Select skill"
-						/>
+  const SKILLS_OPTIONS = [
+    { value: "All", label: "All" },
+    { value: "OOP", label: "OOP" },
+    { value: "TypeScript", label: "TypeScript" },
+    { value: "Database", label: "Database" },
+  ];
 
-						<Button variant="primary">Get Started</Button>
-					</div>
-				</div>
+  return (
+    <section className="hero min-h-[calc(100vh-68px)]">
+      <div className="container mx-auto flex justify-between items-center hero-content text-center">
+        <div className="max-w-prose">
+          <h1 className="text-5xl font-bold text-start">{tAbout("heading")}</h1>
+          <h2 className="text-xl py-6 text-start">
+            {tAbout("subheading.getPersonalized")}{" "}
+            <span className="font-bold">
+              {tAbout("subheading.mentorGuidance")}
+            </span>{" "}
+            {tAbout("subheading.from")}{" "}
+            <span className="font-bold">{tAbout("subheading.circles")}</span>{" "}
+            {tAbout("subheading.toGrow")}{" "}
+            <span className="font-bold">
+              {tAbout("subheading.internships")}
+            </span>
+            ,{tAbout("subheading.and")}{" "}
+            <span className="font-bold">
+              {tAbout("subheading.accelerate")}{" "}
+            </span>{" "}
+            {tAbout("subheading.yourCareer")}.
+          </h2>
 
-				<div className="hidden lg:flex flex-col gap-4">
-					<Image
-						src="/hero.png"
-						alt="hero"
-						width={300}
-						height={300}
-						className="w-full"
-					/>
-				</div>
-			</div>
-		</section>
-	);
+          <div className="flex justify-start gap-2">
+            <Select
+              options={SEARCH_OPTIONS}
+              placeholder={`${tGlobal("actions.searchFor")}...`}
+            />
+
+            <Select
+              options={SKILLS_OPTIONS}
+              placeholder={tAbout("actions.selectSkill")}
+            />
+
+            <Button variant="primary">{tAbout("actions.getStarted")}</Button>
+          </div>
+        </div>
+
+        <div className="hidden lg:flex flex-col gap-4">
+          <Image
+            src="/hero.png"
+            alt="hero"
+            width={300}
+            height={300}
+            className="w-full"
+          />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

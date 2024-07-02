@@ -1,5 +1,9 @@
 # ToDos
 
+## global
+
+- [ ] arabic font
+
 ## components
 
 - [x] Hero section

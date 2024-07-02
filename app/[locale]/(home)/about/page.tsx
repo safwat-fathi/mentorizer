@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: tAbout("title"),
+    description: tAbout("description"),
   };
 }
 
