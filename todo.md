@@ -2,7 +2,7 @@
 
 ## global
 
-- [ ] arabic font
+- [x] arabic font
 
 ## components
 
@@ -25,6 +25,6 @@
 
 ## business requirements
 
-## functional requirements
-
 - [ ] i18n 
+
+## functional requirements

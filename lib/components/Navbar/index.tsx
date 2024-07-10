@@ -90,7 +90,7 @@ const Navbar = () => {
 							</div> */}
             </ul>
           </div>
-          <Link href="/" className="btn btn-ghost text-xl">
+          <Link href="/" className="font-messiri btn btn-ghost text-xl">
             Mentorizer
           </Link>
         </div>
