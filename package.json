@@ -1,43 +1,44 @@
 {
-	"name": "mentorizer",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"clsx": "^2.1.1",
-		"google-auth-library": "^9.11.0",
-		"google-spreadsheet": "^4.1.2",
-		"next": "14.2.3",
-		"next-international": "^1.2.4",
-		"react": "^18",
-		"react-dom": "^18",
-		"react-toastify": "^10.0.5",
-		"theme-change": "^2.5.0"
-	},
-	"devDependencies": {
-		"@tailwindcss/forms": "^0.5.7",
-		"@types/node": "^20",
-		"@types/react": "^18",
-		"@types/react-dom": "^18",
-		"@typescript-eslint/eslint-plugin": "^7.16.0",
-		"@typescript-eslint/parser": "7.0.0",
-		"daisyui": "^4.11.1",
-		"eslint": "^8",
-		"eslint-config-next": "14.2.3",
-		"eslint-plugin-security": "^3.0.1",
-		"eslint-plugin-sonarjs": "^1.0.3",
-		"husky": "^9.0.11",
-		"lint-staged": "^15.2.7",
-		"postcss": "^8",
-		"prettier": "3.3.2",
-		"prettier-plugin-organize-imports": "^3.2.4",
-		"tailwindcss": "^3.4.1",
-		"typescript": "^5.5.3",
-		"typescript-eslint": "^7.16.0"
-	}
+  "name": "mentorizer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky && husky install"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "google-auth-library": "^9.11.0",
+    "google-spreadsheet": "^4.1.2",
+    "next": "14.2.3",
+    "next-international": "^1.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-toastify": "^10.0.5",
+    "theme-change": "^2.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "7.0.0",
+    "daisyui": "^4.11.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "eslint-plugin-security": "^3.0.1",
+    "eslint-plugin-sonarjs": "^1.0.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "postcss": "^8",
+    "prettier": "3.3.2",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.0"
+  }
 }
