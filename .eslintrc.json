@@ -1,4 +1,5 @@
 {
+  "plugins": ["@typescript-eslint", "prettier", "sonarjs", "security"],
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
