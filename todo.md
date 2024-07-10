@@ -15,6 +15,8 @@
 ## pages
 
 - [x] about
+- [x] circles
+- [x] mentor
 - [ ] support & users suggestions
 - [ ] user profile
 - [ ] login
@@ -25,6 +27,6 @@
 
 ## business requirements
 
-- [ ] i18n
+- [ ] **i18n**
 
 ## functional requirements
