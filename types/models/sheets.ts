@@ -1,4 +1,4 @@
 export type SheetRow = {
-	email: string;
-	joinAs: string;
+  email: string;
+  joinAs: string;
 };

@@ -12,7 +12,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
   const tGlobal = useScopedI18n("global");
 
   useEffect(() => {
-    console.error(error);
+    // log error to logger service
   }, [error]);
 
   return (

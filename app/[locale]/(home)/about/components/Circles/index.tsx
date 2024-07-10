@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Circles = async () => {
   const tAbout = await getScopedI18n("about");
-  const tGlobal = await getScopedI18n("global");
+  // const tGlobal = await getScopedI18n("global");
 
   return (
     <section className="container mx-auto mb-16">

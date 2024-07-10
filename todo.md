@@ -16,7 +16,7 @@
 
 - [x] about
 - [ ] support & users suggestions
-- [ ] user profile 
+- [ ] user profile
 - [ ] login
 - [ ] register
 - [ ] forgot password
@@ -25,6 +25,6 @@
 
 ## business requirements
 
-- [ ] i18n 
+- [ ] i18n
 
 ## functional requirements
