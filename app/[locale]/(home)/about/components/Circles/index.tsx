@@ -7,20 +7,16 @@ const Circles = async () => {
 
   return (
     <section className="container mx-auto mb-16">
-      <div className="flex justify-center mb-10">
+      <div className="mb-10 flex justify-center">
         <div className="flex flex-col gap-4">
           <div className="flex gap-4">
-            <div className="w-2 h-auto bg-primary" />
-            <h2 className="text-5xl capitalize font-bold">
-              {tAbout("circles.heading")}
-            </h2>
+            <div className="h-auto w-2 bg-primary" />
+            <h2 className="text-5xl font-bold capitalize">{tAbout("circles.heading")}</h2>
           </div>
 
           <div className="flex flex-col gap-2">
-            <h3 className="text-2xl italic max-w-md text-justify">
-              {tAbout("circles.subheading.youDoNotKnow")}
-            </h3>
-            <h3 className="text-2xl px-2 py-1 max-w-md text-justify bg-primary text-primary-content">
+            <h3 className="max-w-md text-justify text-2xl italic">{tAbout("circles.subheading.youDoNotKnow")}</h3>
+            <h3 className="max-w-md bg-primary px-2 py-1 text-justify text-2xl text-primary-content">
               {tAbout("circles.subheading.youDoKnow")}
             </h3>
           </div>
@@ -28,18 +24,18 @@ const Circles = async () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="lg:flex justify-center hidden">
+        <div className="hidden justify-center lg:flex">
           <Image
             src="/coding.png"
-            className="object-contain w-[300px] h-auto"
+            className="h-auto w-[300px] object-contain"
             width={518}
             height={750}
             alt="person-coding"
           />
         </div>
 
-        <div className="card shadow-lg bg-base-100 py-6 px-10">
-          <ul className="list-disc flex flex-col gap-4 text-xl">
+        <div className="card bg-base-100 px-10 py-6 shadow-lg">
+          <ul className="flex list-disc flex-col gap-4 text-xl">
             <li>{tAbout("circles.groupOfPeople")}.</li>
             <li>{tAbout("circles.leadBy")}.</li>
             <li>{tAbout("circles.getHelp")}.</li>

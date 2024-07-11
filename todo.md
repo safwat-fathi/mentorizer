@@ -11,6 +11,7 @@
 - [x] footer
 - [ ] card
 - [ ] inputs
+- [ ] combobox (search input with suggestions)
 
 ## pages
 
