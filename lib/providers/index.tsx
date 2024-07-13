@@ -4,8 +4,8 @@ import { PropsWithChildren } from "react";
 
 import { I18nProviderClient } from "@/locales/client";
 
-import PageLoader from "../components/Loaders/PageLoader";
 import { ToastContainer } from "react-toastify";
+import Loading from "@/app/[locale]/loading";
 
 export default function Providers({
   children,
@@ -18,14 +18,7 @@ export default function Providers({
   return (
     <>
       <ToastContainer rtl={isRTL} />
-      <I18nProviderClient
-        locale={params.locale}
-        fallback={
-          <div className="w-full min-h-screen flex items-center justify-center">
-            <PageLoader />
-          </div>
-        }
-      >
+      <I18nProviderClient locale={params.locale} fallback={<Loading />}>
         {children}
       </I18nProviderClient>
     </>

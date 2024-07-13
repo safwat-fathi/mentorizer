@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 import daisyui from "daisyui";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   content: ["./lib/components/**/*.{ts,tsx}", "./app/[locale]/**/*.{ts,tsx}"],
@@ -8,8 +9,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
@@ -27,6 +27,6 @@ const config: Config = {
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
     themeRoot: ":root", // The element that receives theme color CSS variables
   },
-  plugins: [daisyui],
+  plugins: [daisyui, typography],
 };
 export default config;

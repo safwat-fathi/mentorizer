@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <div role="navigation" className="bg-white">
-      <div className="navbar bg-base-100 container mx-auto">
+      <div className="container navbar mx-auto bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,17 +39,12 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
               </svg>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40"
+              className="menu dropdown-content menu-sm z-[1] mt-3 w-40 rounded-box bg-base-100 p-2 shadow"
             >
               <li>
                 <Link href="/apply-as-mentor">{tNavbar("startMentoring")}</Link>
@@ -90,7 +85,7 @@ const Navbar = () => {
 							</div> */}
             </ul>
           </div>
-          <Link href="/" className="font-messiri btn btn-ghost text-xl">
+          <Link href="/" className="btn btn-ghost font-messiri text-xl">
             Mentorizer
           </Link>
         </div>
@@ -102,19 +97,19 @@ const Navbar = () => {
             <li>
               <details ref={detailsRef}>
                 <summary>{tGlobal("actions.find")}</summary>
-                <ul className="p-2 w-52">
+                <ul className="w-52 p-2">
                   <li>
                     <Link href="/find?q=mentors">Mentors</Link>
                   </li>
                   <li>
                     <Link href="/find?q=circles">Circles</Link>
                   </li>
-                  {/* <li>
-										<Link href="/find?q=internships">Internships</Link>
-									</li> */}
-                  {/* <li>
-										<Link href="/find?q=interns">Interns</Link>
-									</li> */}
+                  <li>
+                    <Link href="/find?q=internships">Internships</Link>
+                  </li>
+                  <li>
+                    <Link href="/find?q=interns">Interns</Link>
+                  </li>
                 </ul>
               </details>
             </li>
@@ -124,7 +119,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="hidden md:flex navbar-end gap-2">
+        <div className="navbar-end hidden gap-2 md:flex">
           <div>
             <LangSwitcher />
           </div>

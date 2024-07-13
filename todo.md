@@ -4,6 +4,11 @@
 
 - [x] arabic font
 
+## services
+
+- [ ] http service
+- [ ] auth service
+
 ## components
 
 - [x] Hero section
@@ -11,14 +16,18 @@
 - [x] footer
 - [ ] card
 - [ ] inputs
-- [ ] combobox (search input with suggestions)
+- [ ] **combobox (search input with suggestions)**
 
 ## pages
 
-- [x] about
-- [x] circles
-- [x] mentor
-- [ ] support & users suggestions
+- [x] **about**
+- [ ] **coming soon**
+- [ ] **circles**
+- [ ] **mentor**
+- [ ] **mentor guide**
+- [ ] **circles guide**
+- [ ] support
+- [ ] **contact us**
 - [ ] user profile
 - [ ] login
 - [ ] register
@@ -28,6 +37,6 @@
 
 ## business requirements
 
-- [ ] **i18n**
+- [x] **i18n**
 
 ## functional requirements
