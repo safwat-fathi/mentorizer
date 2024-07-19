@@ -88,7 +88,13 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <Dropdown trigger={tNavbar("startMentoring")}>
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <Link href="/apply-as-mentor">{tNavbar("startMentoring")}</Link>
+            </li>
+          </ul>
+
+          <Dropdown trigger={tGlobal("actions.find")}>
             <ul className="z-10 !mt-5 w-52 p-2">
               <li>
                 <Link href="/coming-soon">Mentors</Link>
@@ -108,10 +114,10 @@ const Navbar = () => {
           <Dropdown trigger="Guides">
             <ul className="z-10 !mt-5 w-52 p-2">
               <li>
-                <Link href="/coming-soon">Mentees</Link>
+                <Link href="/mentees">Mentees</Link>
               </li>
               <li>
-                <Link href="/coming-soon">Mentors</Link>
+                <Link href="/guides/mentors">Mentors</Link>
               </li>
               <li>
                 <Link href="/coming-soon">Circles</Link>

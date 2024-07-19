@@ -14,6 +14,7 @@ const config: Config = {
       fontFamily: {
         inter: ["var(--font-inter)"],
         messiri: ["var(--font-messiri)"],
+        rubik: ["var(--font-rubik)"],
       },
     },
   },

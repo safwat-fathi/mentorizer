@@ -1,59 +1,63 @@
+import { getScopedI18n } from "@/locales/server";
 import Link from "next/link";
 
-const Footer = () => {
+const Footer = async () => {
+  const tGlobal = await getScopedI18n("global");
+  const tFooter = await getScopedI18n("global.footer");
+
   return (
     <footer className="footer bg-base-200 p-10 text-base-content">
       <aside>
-        <h2 className="font-messiri text-2xl font-semibold">Mentorizer</h2>
-        <p>
-          Skill up. Level up. Together.
-          <br />
-          All rights reserved Mentorizer &copy; 2024
-        </p>
+        <h2 className="font-messiri text-2xl font-semibold">{tGlobal("title")}</h2>
+        <p>{tGlobal("motto")}</p>
+        <p>{tFooter("allRightsReserved")} &copy; 2024</p>
       </aside>
+
       <nav>
-        <h6 className="footer-title">Services</h6>
+        <h6 className="footer-title">{tFooter("services")}</h6>
         <Link href="/coming-soon" className="link-hover link capitalize">
-          Be a mentor
-        </Link>
-        <Link href="/coming-soon" className="link-hover link capitalize">
-          start a circle
+          {tFooter("beAMentor")}
         </Link>
         <Link href="/coming-soon" className="link-hover link capitalize">
-          Find internships
+          {tFooter("startACircle")}
         </Link>
-        {/* <Link href="/coming-soon" className="link link-hover">
-          For companies
+        <Link href="/coming-soon" className="link-hover link capitalize">
+          {tFooter("findInternships")}
         </Link>
-        <Link href="/coming-soon" className="link link-hover">
-          Host a hackathon
-        </Link>
-        <Link href="/coming-soon" className="link link-hover">
-          Host a Meetup
-        </Link> */}
       </nav>
+
       <nav>
-        <h6 className="footer-title">mentorizer</h6>
+        <h6 className="footer-title">{tFooter("forCompanies")}</h6>
+        <Link href="/coming-soon" className="link-hover link">
+          {tFooter("hostMeetup")}
+        </Link>
+        <Link href="/coming-soon" className="link-hover link">
+          {tFooter("hostHackathon")}
+        </Link>
+      </nav>
+
+      <nav>
+        <h6 className="footer-title">{tGlobal("title")}</h6>
         <Link href="/about" className="link-hover link capitalize">
-          About us
+          {tFooter("aboutUs")}
         </Link>
         <Link href="/contact" className="link-hover link capitalize">
-          Contact us
+          {tFooter("contactUs")}
         </Link>
         {/* <Link href="/coming-soon" className="link-hover link capitalize">
           Jobs
         </Link> */}
       </nav>
       <nav>
-        <h6 className="footer-title">guides</h6>
-        <Link href="/guides" className="link-hover link capitalize">
-          Mentees guide
+        <h6 className="footer-title">{tFooter("guides")}</h6>
+        <Link href="/guides/mentees" className="link-hover link capitalize">
+          {tFooter("menteesGuide")}
         </Link>
-        <Link href="/coming-soon" className="link-hover link capitalize">
-          Mentors guide
+        <Link href="/guides/mentors" className="link-hover link capitalize">
+          {tFooter("mentorsGuide")}
         </Link>
-        <Link href="/coming-soon" className="link-hover link capitalize">
-          Circles guide
+        <Link href="/guides/circles" className="link-hover link capitalize">
+          {tFooter("circlesGuide")}
         </Link>
       </nav>
       {/* <nav>

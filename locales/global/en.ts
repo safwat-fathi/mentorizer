@@ -3,6 +3,22 @@ const en = {
   navbar: {
     startMentoring: "Start mentoring",
   },
+  footer: {
+    allRightsReserved: "All rights reserved Mentorizer",
+    services: "Services",
+    beAMentor: "Be a mentor",
+    startACircle: "Start a circle",
+    findInternships: "Find internships",
+    aboutUs: "about us",
+    contactUs: "contact us",
+    guides: "guides",
+    menteesGuide: "Mentees guide",
+    mentorsGuide: "Mentors guide",
+    circlesGuide: "Circles guide",
+    forCompanies: "For companies",
+    hostHackathon: "Host hackathon",
+    hostMeetup: "Host meetup",
+  },
   ar: "AR",
   en: "EN",
   actions: {
