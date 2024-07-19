@@ -85,7 +85,7 @@ const CTA = () => {
               onChange={(e) => setJoinAs(e.target.value)}
             />
 
-            <Button type="submit" onClick={handleJoin} variant="accent" loading={isLoading} className="col-span-1">
+            <Button type="submit" onClick={handleJoin} variant="neutral" loading={isLoading} className="col-span-1">
               {tAbout("cta.joinUs")}
             </Button>
           </div>

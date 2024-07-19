@@ -6,7 +6,7 @@
 
 ## services
 
-- [ ] http service
+- [x] http service
 - [ ] auth service
 
 ## components

@@ -1,33 +1,17 @@
 "use client";
 
-import useOutsideClick from "@/lib/hooks/useOutsiedClick";
 import { useScopedI18n } from "@/locales/client";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
+
 import LangSwitcher from "../LangSwitcher";
+import Dropdown from "../Dropdown";
 
 const Navbar = () => {
   const tNavbar = useScopedI18n("global.navbar");
   const tGlobal = useScopedI18n("global");
 
-  const pathname = usePathname();
-  const searchparams = useSearchParams();
-
-  const detailsRef = useRef<HTMLDetailsElement>(null);
-
-  const closeDropdown = () => {
-    detailsRef.current?.removeAttribute("open");
-  };
-
-  useOutsideClick(detailsRef, closeDropdown);
-
-  useEffect(() => {
-    detailsRef.current?.removeAttribute("open");
-  }, [pathname, searchparams]);
-
   return (
-    <div role="navigation" className="bg-white">
+    <div role="navigation" className="sticky top-0 z-50 bg-white shadow">
       <div className="container navbar mx-auto bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -53,23 +37,37 @@ const Navbar = () => {
                 <Link href="/find">{tGlobal("actions.find")}</Link>
                 <ul className="p-2">
                   <li>
-                    <Link href="/find?q=mentors">Mentors</Link>
+                    <Link href="/coming-soon">Mentors</Link>
                   </li>
                   <li>
-                    <Link href="/find?q=circles">Circles</Link>
-                  </li>
-                  {/* <li>
-                    <Link href="/find?q=internships">Internships</Link>
+                    <Link href="/coming-soon">Circles</Link>
                   </li>
                   <li>
-                    <Link href="/find?q=interns">Interns</Link>
-                  </li> */}
+                    <Link href="/coming-soon">Internships</Link>
+                  </li>
+                  <li>
+                    <Link href="/coming-soon">Interns</Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link href="/guides">Guides</Link>
+                <ul className="p-2">
+                  <li>
+                    <Link href="/coming-soon">Mentees</Link>
+                  </li>
+                  <li>
+                    <Link href="/coming-soon">Mentors</Link>
+                  </li>
+                  <li>
+                    <Link href="/coming-soon">Circles</Link>
+                  </li>
                 </ul>
               </li>
 
-              {/* <li>
+              <li>
                 <Link href="/post-internship">Post Internships</Link>
-              </li> */}
+              </li>
 
               {/* <div className="md:hidden">
 								<div className="divider"></div>
@@ -85,37 +83,46 @@ const Navbar = () => {
 							</div> */}
             </ul>
           </div>
-          <Link href="/" className="btn btn-ghost font-messiri text-xl">
+          <Link href="/" className="font-messiri text-xl font-semibold">
             Mentorizer
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
+          <Dropdown trigger={tNavbar("startMentoring")}>
+            <ul className="z-10 !mt-5 w-52 p-2">
+              <li>
+                <Link href="/coming-soon">Mentors</Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">Circles</Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">Internships</Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">Interns</Link>
+              </li>
+            </ul>
+          </Dropdown>
+
+          <Dropdown trigger="Guides">
+            <ul className="z-10 !mt-5 w-52 p-2">
+              <li>
+                <Link href="/coming-soon">Mentees</Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">Mentors</Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">Circles</Link>
+              </li>
+            </ul>
+          </Dropdown>
+
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/apply-as-mentor">{tNavbar("startMentoring")}</Link>
+              <Link href="/coming-soon">Post Internships</Link>
             </li>
-            <li>
-              <details ref={detailsRef}>
-                <summary>{tGlobal("actions.find")}</summary>
-                <ul className="w-52 p-2">
-                  <li>
-                    <Link href="/find?q=mentors">Mentors</Link>
-                  </li>
-                  <li>
-                    <Link href="/find?q=circles">Circles</Link>
-                  </li>
-                  <li>
-                    <Link href="/find?q=internships">Internships</Link>
-                  </li>
-                  <li>
-                    <Link href="/find?q=interns">Interns</Link>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            {/* <li>
-							<Link href="/post-internship">Post Internships</Link>
-						</li> */}
           </ul>
         </div>
 
