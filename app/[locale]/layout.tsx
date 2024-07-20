@@ -1,11 +1,11 @@
 import { getScopedI18n } from "@/locales/server";
 import clsx from "clsx";
 import type { Metadata, Viewport } from "next";
-import { El_Messiri, Inter, Rubik } from "next/font/google";
+import { El_Messiri, Rubik } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
+import { AppLocale } from "@/types";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const messiri = El_Messiri({ subsets: ["latin"], variable: "--font-messiri" });
 const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik" });
 
@@ -30,27 +30,14 @@ export default function RootLayout({
   children,
   params: { locale },
 }: Readonly<{
-  params: { locale: "ar" | "en" };
+  params: { locale: AppLocale };
   children: ReactNode;
 }>) {
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html
-      lang={locale}
-      dir={dir}
-      data-theme="light"
-      translate="no"
-      className={clsx(inter.variable, messiri.variable, rubik.variable)}
-    >
-      <body
-        className={clsx("bg-base-200", {
-          "font-rubik": locale === "ar",
-          "font-inter": locale === "en",
-        })}
-      >
-        {children}
-      </body>
+    <html lang={locale} dir={dir} data-theme="light" translate="no" className={clsx(messiri.variable, rubik.variable)}>
+      <body className="bg-base-200 font-rubik">{children}</body>
     </html>
   );
 }

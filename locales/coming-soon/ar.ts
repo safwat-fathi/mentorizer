@@ -7,7 +7,11 @@ const ar = {
     two: "قريبا",
   },
   subheading: "نحن نعمل على توفير هذه الميزة قريبًا!",
-  actions: {},
+  suggestionsLabel: "هل لديك مقترحات أو توصيات؟ رجاءا شاركها معنا",
+  suggestionsPlaceholder: "شارك أفكارك ...",
+  actions: {
+    submit: "إرسال",
+  },
   error: {},
 } as const;
 

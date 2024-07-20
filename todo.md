@@ -21,7 +21,7 @@
 ## pages
 
 - [x] **about**
-- [ ] **coming soon**
+- [x] **coming soon**
 - [ ] **circles**
 - [ ] **mentor**
 - [ ] **mentor guide**

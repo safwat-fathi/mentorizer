@@ -1,18 +1,20 @@
+import clsx from "clsx";
 import { ReactNode, TextareaHTMLAttributes } from "react";
 
 type Props = {
   label?: ReactNode | string;
 } & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-const Textarea = ({ id, label, ...rest }: Props) => {
+const Textarea = ({ id, label, className, ...rest }: Props) => {
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       <label htmlFor={id} className="block text-sm font-medium text-gray-700">
         {label}
       </label>
 
       <textarea
-        className="resize-none mt-2 w-full rounded-lg border-gray-200 align-top shadow-sm sm:text-sm"
+        id={id}
+        className={clsx("textarea textarea-bordered w-full resize-none", className)}
         {...rest}
       ></textarea>
     </div>

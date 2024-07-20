@@ -54,13 +54,13 @@ const Navbar = () => {
                 <Link href="/guides">{tNavbar("guides")}</Link>
                 <ul className="p-2">
                   <li>
-                    <Link href="/mentees">{tNavbar("mentees")}</Link>
+                    <Link href="/guides/mentees">{tNavbar("mentees")}</Link>
                   </li>
                   <li>
                     <Link href="/guides/mentors">{tNavbar("mentors")}</Link>
                   </li>
                   <li>
-                    <Link href="/coming-soon">{tNavbar("circles")}</Link>
+                    <Link href="/guides/circles">{tNavbar("circles")}</Link>
                   </li>
                 </ul>
               </li>

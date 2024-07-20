@@ -7,6 +7,11 @@ const en = {
     two: "Soon",
   },
   subheading: "We're working to bring this feature to you soon!",
+  suggestionsLabel: "Have any suggestions or recommendations? please share it with us",
+  suggestionsPlaceholder: "Share your thoughts...",
+  actions: {
+    submit: "Submit",
+  },
   error: {},
 } as const;
 
