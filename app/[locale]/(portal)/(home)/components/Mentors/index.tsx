@@ -24,10 +24,10 @@ const Mentors = async () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="hidden justify-center lg:flex">
-          <Image src="/launch.png" className="h-auto w-[300px] object-contain" width={518} height={750} alt="launch" />
+          <Image src="/launch.png" className="h-auto w-[400px] object-contain" width={518} height={750} alt="launch" />
         </div>
 
-        <div className="card bg-base-100 px-10 py-6 shadow-lg">
+        <div className="card prose max-w-none bg-base-100 px-10 py-6 shadow-lg dark:prose-invert">
           <ul className="flex list-disc flex-col gap-4 text-xl">
             <li>{tAbout("mentors.schedule")}</li>
             <li>{tAbout("mentors.share")}</li>

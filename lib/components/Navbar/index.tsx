@@ -37,36 +37,36 @@ const Navbar = () => {
                 <Link href="/find">{tGlobal("actions.find")}</Link>
                 <ul className="p-2">
                   <li>
-                    <Link href="/coming-soon">Mentors</Link>
+                    <Link href="/coming-soon">{tNavbar("mentors")}</Link>
                   </li>
                   <li>
-                    <Link href="/coming-soon">Circles</Link>
+                    <Link href="/coming-soon">{tNavbar("circles")}</Link>
                   </li>
                   <li>
-                    <Link href="/coming-soon">Internships</Link>
+                    <Link href="/coming-soon">{tNavbar("internships")}</Link>
                   </li>
                   <li>
-                    <Link href="/coming-soon">Interns</Link>
+                    <Link href="/coming-soon">{tNavbar("interns")}</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link href="/guides">Guides</Link>
+                <Link href="/guides">{tNavbar("guides")}</Link>
                 <ul className="p-2">
                   <li>
-                    <Link href="/coming-soon">Mentees</Link>
+                    <Link href="/mentees">{tNavbar("mentees")}</Link>
                   </li>
                   <li>
-                    <Link href="/coming-soon">Mentors</Link>
+                    <Link href="/guides/mentors">{tNavbar("mentors")}</Link>
                   </li>
                   <li>
-                    <Link href="/coming-soon">Circles</Link>
+                    <Link href="/coming-soon">{tNavbar("circles")}</Link>
                   </li>
                 </ul>
               </li>
 
               <li>
-                <Link href="/post-internship">Post Internships</Link>
+                <Link href="/post-internship">{tNavbar("postInternships")}</Link>
               </li>
 
               {/* <div className="md:hidden">
@@ -84,7 +84,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link href="/" className="font-messiri text-xl font-semibold">
-            Mentorizer
+            {tGlobal("title")}
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -97,37 +97,37 @@ const Navbar = () => {
           <Dropdown trigger={tGlobal("actions.find")}>
             <ul className="z-10 !mt-5 w-52 p-2">
               <li>
-                <Link href="/coming-soon">Mentors</Link>
+                <Link href="/coming-soon">{tNavbar("mentors")}</Link>
               </li>
               <li>
-                <Link href="/coming-soon">Circles</Link>
+                <Link href="/coming-soon">{tNavbar("circles")}</Link>
               </li>
               <li>
-                <Link href="/coming-soon">Internships</Link>
+                <Link href="/coming-soon">{tNavbar("internships")}</Link>
               </li>
               <li>
-                <Link href="/coming-soon">Interns</Link>
+                <Link href="/coming-soon">{tNavbar("interns")}</Link>
               </li>
             </ul>
           </Dropdown>
 
-          <Dropdown trigger="Guides">
+          <Dropdown trigger={tNavbar("guides")}>
             <ul className="z-10 !mt-5 w-52 p-2">
               <li>
-                <Link href="/mentees">Mentees</Link>
+                <Link href="/mentees">{tNavbar("mentees")}</Link>
               </li>
               <li>
-                <Link href="/guides/mentors">Mentors</Link>
+                <Link href="/guides/mentors">{tNavbar("mentors")}</Link>
               </li>
               <li>
-                <Link href="/coming-soon">Circles</Link>
+                <Link href="/coming-soon">{tNavbar("circles")}</Link>
               </li>
             </ul>
           </Dropdown>
 
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/coming-soon">Post Internships</Link>
+              <Link href="/coming-soon">{tNavbar("postInternships")}</Link>
             </li>
           </ul>
         </div>

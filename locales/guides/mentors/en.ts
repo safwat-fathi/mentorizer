@@ -1,4 +1,6 @@
 const en = {
+  title: "Mentors Guide",
+  description: "A guide to help mentors understand the platform and their role in it",
   welcome: "Welcome to Mentorizer!",
   thankYou:
     "Thank you for joining Mentorizer, where we connect mentors and mentees to foster learning and growth. This guide will help you understand what Mentorizer is, how you can contribute, and what is expected from you as a mentor.",
@@ -8,11 +10,16 @@ const en = {
   whatCanHelp: "What Mentorizer Can Help You With?",
   whatCanHelpContent: {
     point1: "Share your expertise and experience with mentees",
-    point2: "Help mentees develop their skills and achieve their goals",
-    point3: "Gain satisfaction from contributing to others' success",
+    point2: "Earn additional income by providing unique mentoring or educational services",
+    point3: "Help mentees develop their skills and achieve their goals",
     point4: "Expand your professional network",
   },
   servicesOffer: "Services You Can Provide, Including but Not Limited to",
+  circles: {
+    title: "Mentorizer Circles",
+    content:
+      "Mentorizer Circles are small groups of mentees guided by a mentor to collaborate on specific topics or projects. As a mentor, you can facilitate these circles by organizing group sessions, providing resources, roadmap and fostering a collaborative learning environment. This service allows mentees to benefit from peer learning while receiving expert guidance from you.",
+  },
   mockInterviews: {
     title: "Mock Interviews",
     content:
@@ -35,20 +42,43 @@ const en = {
   },
   requirements: "What is Required from You?",
   requirementsContent: {
-    point1: "Be Committed: Allocate regular time slots for mentoring sessions and stick to them.",
-    point2: "Be Professional: Maintain a professional demeanor during all interactions.",
-    point3: "Be Supportive: Offer constructive feedback and encouragement.",
-    point4: "Be Prepared: Plan your sessions in advance to make the most of the time you have with your mentees.",
-    point5: "Be Open: Be willing to share your knowledge and experiences generously.",
+    point1: {
+      head: "Be Committed:",
+      content: "Allocate regular time slots for mentoring sessions and stick to them.",
+    },
+    point2: {
+      head: "Be Professional:",
+      content: "Maintain a professional demeanor during all interactions.",
+    },
+    point3: {
+      head: "Be Supportive:",
+      content: "Offer constructive feedback and encouragement.",
+    },
+    point4: {
+      head: "Be Prepared:",
+      content: "Plan your sessions in advance to make the most of the time you have with your mentees.",
+    },
+    point5: {
+      head: "Be Open:",
+      content: "Be willing to share your knowledge and experiences generously.",
+    },
   },
   gettingStarted: "Getting Started",
   gettingStartedContent: {
-    point1:
-      "Create Your Profile: Ensure your profile is complete and up-to-date, highlighting your expertise and the services you offer.",
-    point2:
-      "Set Your Availability: Define your availability for mentoring sessions to help mentees book time with you easily.",
-    point3:
-      "Engage with Mentees: Start connecting with mentees, understanding their goals, and tailoring your sessions to meet their needs.",
+    point1: {
+      head: "Create Your Profile:",
+      content:
+        "Ensure your profile is complete and up-to-date, highlighting your expertise and the services you offer.",
+    },
+    point2: {
+      head: "Set Your Availability:",
+      content: "Define your availability for mentoring sessions to help mentees book time with you easily.",
+    },
+    point3: {
+      head: "Engage with Mentees:",
+      content:
+        "Start connecting with mentees, understanding their goals, and tailoring your sessions to meet their needs.",
+    },
   },
   conclusion: "Conclusion",
   conclusionContent:

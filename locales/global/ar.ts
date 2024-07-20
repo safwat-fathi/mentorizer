@@ -2,6 +2,13 @@ const ar = {
   welcome: "أهلا {name}!",
   navbar: {
     startMentoring: "إبدأ بالتوجيه",
+    postInternships: "نشر منح تدريبية",
+    guides: "إرشادات",
+    mentors: "موجهين",
+    mentees: "متدربين",
+    circles: "دوائر",
+    internships: "منح تدريبية",
+    interns: "متدربين",
   },
   footer: {
     allRightsReserved: "جميع الحقوق محفوظة لمينتورايزر",

@@ -3,7 +3,6 @@ import Image from "next/image";
 
 const Circles = async () => {
   const tAbout = await getScopedI18n("about");
-  // const tGlobal = await getScopedI18n("global");
 
   return (
     <section className="container mx-auto mb-16">
@@ -27,14 +26,14 @@ const Circles = async () => {
         <div className="hidden justify-center lg:flex">
           <Image
             src="/coding.png"
-            className="h-auto w-[300px] object-contain"
+            className="h-auto w-[400px] object-contain"
             width={518}
             height={750}
             alt="person-coding"
           />
         </div>
 
-        <div className="card bg-base-100 px-10 py-6 shadow-lg">
+        <div className="card prose max-w-none bg-base-100 px-10 py-6 shadow-lg dark:prose-invert">
           <ul className="flex list-disc flex-col gap-4 text-xl">
             <li>{tAbout("circles.groupOfPeople")}.</li>
             <li>{tAbout("circles.leadBy")}.</li>

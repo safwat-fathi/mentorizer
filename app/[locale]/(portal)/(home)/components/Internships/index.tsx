@@ -21,7 +21,7 @@ const Internships = async () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="card bg-base-100 px-10 py-6 shadow-lg">
-          <ul className="flex list-disc flex-col gap-4 text-xl">
+          <ul className="prose flex max-w-none list-disc flex-col gap-4 text-xl dark:prose-invert">
             <li> {tAbout("internships.kickStart")}</li>
             <li> {tAbout("internships.getPaid")}</li>
             <li>{tAbout("internships.grow")}</li>
@@ -35,7 +35,7 @@ const Internships = async () => {
         <div className="hidden justify-center lg:flex">
           <Image
             src="/super-hero.png"
-            className="h-auto w-[300px] object-contain"
+            className="h-auto w-[400px] object-contain"
             width={518}
             height={750}
             alt="super-hero"

@@ -2,6 +2,13 @@ const en = {
   welcome: "Hello {name}!",
   navbar: {
     startMentoring: "Start mentoring",
+    postInternships: "Post internships",
+    guides: "Guides",
+    mentees: "Mentees",
+    mentors: "Mentors",
+    circles: "Circles",
+    internships: "Internships",
+    interns: "Interns",
   },
   footer: {
     allRightsReserved: "All rights reserved Mentorizer",
@@ -19,8 +26,8 @@ const en = {
     hostHackathon: "Host hackathon",
     hostMeetup: "Host meetup",
   },
-  ar: "AR",
-  en: "EN",
+  ar: "Arabic",
+  en: "English",
   actions: {
     goHome: "Go home",
     goBack: "Go back",
