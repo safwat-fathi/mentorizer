@@ -34,9 +34,9 @@ const Hero = async () => {
           </h2>
 
           <div className="flex justify-start gap-2">
-            <Select options={SEARCH_OPTIONS} placeholder={`${tGlobal("actions.searchFor")}...`} />
+            <Select className="max-w-xs" options={SEARCH_OPTIONS} placeholder={`${tGlobal("actions.searchFor")}...`} />
 
-            <Select options={SKILLS_OPTIONS} placeholder={tAbout("actions.selectSkill")} />
+            <Select className="max-w-xs" options={SKILLS_OPTIONS} placeholder={tAbout("actions.selectSkill")} />
 
             <Button variant="primary">{tAbout("actions.getStarted")}</Button>
           </div>

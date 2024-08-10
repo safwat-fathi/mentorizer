@@ -74,7 +74,7 @@ const CTA = () => {
             />
 
             <Select
-              className="col-span-1"
+              className="col-span-1 max-w-xs"
               options={[
                 { label: "Mentor", value: "mentor" },
                 { label: "Mentee", value: "mentee" },

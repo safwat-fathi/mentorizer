@@ -1,44 +1,26 @@
-import { ThemeVariant } from "@/types/theme";
+import { ComponentProps, ReactNode } from "react";
 
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ThemeVariant } from "@/types/theme";
 
 type Props = {
   children: ReactNode;
   loading?: boolean;
   variant?: ThemeVariant;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & ComponentProps<"button">;
 
-const Button = ({
-  loading,
-  variant = "neutral",
-  className,
-  children,
-  disabled,
-  ...props
-}: Props) => {
+const Button = ({ loading, variant = "neutral", className, children, disabled, ...props }: Props) => {
   return (
-    <button
-      className={`btn btn-${variant} ${className}`}
-      disabled={loading || disabled}
-      {...props}
-    >
+    <button className={`btn btn-${variant} ${className}`} disabled={loading || disabled} {...props}>
       {!loading ? (
         children
       ) : (
         <svg
-          className={`animate-spin h-5 w-5 text-${variant}-content`}
+          className={`h-5 w-5 animate-spin text-${variant}-content`}
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
         >
-          <circle
-            className="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            stroke-width="4"
-          ></circle>
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
           <path
             className="opacity-75"
             fill="currentColor"

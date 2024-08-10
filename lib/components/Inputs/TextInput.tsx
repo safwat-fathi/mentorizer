@@ -1,22 +1,13 @@
-import { InputHTMLAttributes, ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 
 type Props = {
   label?: ReactNode | string;
   icon?: ReactNode;
   containerClassName?: string;
   inputCLassName?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & ComponentProps<"input">;
 
-const TextInput = ({
-  containerClassName,
-  inputCLassName,
-  placeholder,
-  id,
-  label,
-  icon,
-  type,
-  ...props
-}: Props) => {
+const TextInput = ({ containerClassName, inputCLassName, placeholder, id, label, icon, type, ...props }: Props) => {
   return (
     <div role="textbox" className={`relative ${containerClassName}`}>
       <label htmlFor={id} className="sr-only">
@@ -31,7 +22,7 @@ const TextInput = ({
         {...props}
       />
 
-      <span className="absolute inset-y-0 end-0 grid w-10 place-content-center pointer-events-none">
+      <span className="pointer-events-none absolute inset-y-0 end-0 grid w-10 place-content-center">
         <button type="button" className="text-gray-600 hover:text-gray-700">
           <span className="sr-only">{placeholder}</span>
           {icon}

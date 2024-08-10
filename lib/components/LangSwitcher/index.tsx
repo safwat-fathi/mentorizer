@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  useChangeLocale,
-  useCurrentLocale,
-  useScopedI18n,
-} from "@/locales/client";
+import { useChangeLocale, useCurrentLocale, useScopedI18n } from "@/locales/client";
 import { ChangeEventHandler } from "react";
 import Select from "../Inputs/Select";
 
@@ -20,6 +16,7 @@ const LangSwitcher = () => {
 
   return (
     <Select
+      className="max-w-xs"
       onChange={handleChange}
       options={[
         { value: "ar", label: tGlobal("ar") },

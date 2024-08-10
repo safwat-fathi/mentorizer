@@ -7,6 +7,8 @@ import { redirect, RedirectType } from "next/navigation";
 
 import CONSTANTS from "@/lib/constants";
 import { AuthenticationData } from "@/types/models/auth.model";
+import { FormState } from "@/types/forms";
+import { fillRequiredFields } from "@/lib/utils/forms";
 
 export async function setCookieAction(name: string, value: string, options: Partial<ResponseCookie> = {}) {
   cookies().set({
@@ -79,4 +81,40 @@ export async function revalidateAction(key: string) {
 
 export async function redirectAction(route: string, type?: RedirectType) {
   redirect(route, type);
+}
+
+export async function joinUsAction(prevState: FormState, formData: FormData): Promise<FormState> {
+  try {
+    if (prevState.errors) return prevState;
+
+    const joinAs = formData.get("join_as") as "mentee" | "mentor";
+    const email = formData.get("email") as string;
+    const name = formData.get("name") as string;
+    const fieldsOfInterest = formData.get("fields_of_interest") as string;
+    const expertise = formData.get("expertise") as string;
+    const yearsOfExperience = formData.get("years_of_experience") as string;
+
+    if (!email || !name) return { message: fillRequiredFields, errors: { name: !name, email: !email } };
+
+    if (joinAs === "mentee" && !fieldsOfInterest) {
+      // ? check for required fields of mentee
+      return {
+        message: fillRequiredFields,
+      };
+    }
+
+    if (joinAs === "mentor" && (!yearsOfExperience || !expertise)) {
+      return {
+        message: fillRequiredFields,
+      };
+    }
+
+    // ? send data to google sheet
+
+    return {
+      message: "Thank you for joining us!",
+    };
+  } catch (error) {
+    throw new Error(`Error join us form::${error}`);
+  }
 }
