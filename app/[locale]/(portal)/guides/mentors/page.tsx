@@ -17,8 +17,7 @@ const MentorsGuide = async () => {
     <main className="mx-auto mb-1 mt-6 flex max-w-md flex-col gap-8 rounded-lg bg-white p-9 shadow-md md:max-w-3xl lg:max-w-4xl">
       <section className="prose max-w-none dark:prose-invert">
         <h1 className="text-center">{tMentorsGuide("title")}</h1>
-        <p className="text-center">{tMentorsGuide("description")}</p>
-        {/* <p>{tMentorsGuide("thankYou")}</p> */}
+        <p>{tMentorsGuide("description")}</p>
       </section>
 
       <section className="prose max-w-none dark:prose-invert">

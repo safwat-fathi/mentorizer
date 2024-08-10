@@ -114,13 +114,13 @@ const Navbar = () => {
           <Dropdown trigger={tNavbar("guides")}>
             <ul className="z-10 !mt-5 w-52 p-2">
               <li>
-                <Link href="/mentees">{tNavbar("mentees")}</Link>
+                <Link href="/guides/mentees">{tNavbar("mentees")}</Link>
               </li>
               <li>
                 <Link href="/guides/mentors">{tNavbar("mentors")}</Link>
               </li>
               <li>
-                <Link href="/coming-soon">{tNavbar("circles")}</Link>
+                <Link href="/guides/circles">{tNavbar("circles")}</Link>
               </li>
             </ul>
           </Dropdown>

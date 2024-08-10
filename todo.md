@@ -25,7 +25,10 @@
 - [ ] **circles**
 - [ ] **mentor**
 - [ ] **mentor guide**
+  - add how mentors can be sponsored (sessions / circles)
 - [ ] **circles guide**
+- [ ] **companies guide**
+  - what benefits can company have?
 - [ ] support
 - [ ] **contact us**
 - [ ] user profile
