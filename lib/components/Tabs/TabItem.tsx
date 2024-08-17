@@ -1,15 +1,43 @@
-import { ComponentProps, PropsWithChildren } from "react";
+"use client";
+
+import { ChangeEventHandler, ComponentProps, PropsWithChildren } from "react";
+import { useTabs } from "./tabs.context";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type Props = {
-  name: string;
   title: string;
-  defaultChecked?: boolean;
+  value: string;
 } & ComponentProps<"div">;
 
-const TabItem = ({ title, name, defaultChecked, children, ...rest }: PropsWithChildren<Props>) => {
+const TabItem = ({ title, value, children, ...rest }: PropsWithChildren<Props>) => {
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const searchParams = useSearchParams();
+  const { name } = useTabs();
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const params = new URLSearchParams(searchParams);
+
+    params.has(name) && params.delete(name);
+
+    params.set(name, e.target.value);
+
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <>
-      <input type="radio" name={name} role="tab" className="tab" aria-label={title} defaultChecked={defaultChecked} />
+      <input
+        type="radio"
+        name={name}
+        role="tab"
+        className="tab"
+        aria-label={title}
+        defaultChecked={value === searchParams.get(name)?.toString()}
+        onChange={handleChange}
+        value={value}
+      />
       <div role="tabpanel" className="tab-content p-6" {...rest}>
         {children}
       </div>

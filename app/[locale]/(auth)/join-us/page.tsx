@@ -1,7 +1,10 @@
+"use client";
+
 import Tabs from "@/lib/components/Tabs";
 import TabItem from "@/lib/components/Tabs/TabItem";
 import MenteeForm from "./components/MenteeForm";
 import MentorForm from "./components/MentorForm";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -12,23 +15,25 @@ type Props = {
   };
 };
 
-const JoinUs = ({ searchParams }: Props) => {
+const JoinUs = async ({ searchParams }: Props) => {
   const { join_as } = searchParams;
 
+  if (!join_as) return notFound();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-10">
-      <section className="container mx-auto">
+    <main className="container mx-auto flex min-h-screen max-w-md flex-col items-center justify-center gap-10">
+      <section>
         <div className="prose flex max-w-none items-center justify-center dark:prose-invert">
-          <h1>Join Us</h1>
+          <h1>Join Us @ Mentorizer</h1>
         </div>
       </section>
 
-      <section className="container mx-auto h-96">
-        <Tabs className="grid-cols-2">
-          <TabItem name="join_us" title="As a Mentee" defaultChecked={join_as === "mentee"}>
+      <section>
+        <Tabs className="grid-cols-2" defaultValue={join_as || "mentee"}>
+          <TabItem value="mentee" title="As a Mentee">
             <MenteeForm />
           </TabItem>
-          <TabItem name="join_us" title="As a Mentor" defaultChecked={join_as === "mentor"}>
+          <TabItem value="mentor" title="As a Mentor">
             <MentorForm />
           </TabItem>
         </Tabs>

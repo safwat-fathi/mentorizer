@@ -3,6 +3,7 @@ export enum Constants {
   REFRESH_TOKEN = "refresh_token",
   EXPIRES = "expires",
   EXPIRES_AT = "expires_at",
+  REGISTERED = "registered",
 }
 
 type ConstantsMap = { [key in keyof typeof Constants]: (typeof Constants)[key] };

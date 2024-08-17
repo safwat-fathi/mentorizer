@@ -135,6 +135,20 @@ const en = {
     notFound: "Sorry, resource not found",
     globalError: "Sorry, something went wrong",
   },
+  formErrors: {
+    invalidFormData: "Please check the form data",
+    required: "This field is required",
+    minLength: "Minimum length is {minLength}",
+    maxLength: "Maximum length is {maxLength}",
+    pattern: "Invalid format",
+    min: "Minimum value is {min}",
+    max: "Maximum value is {max}",
+    validate: "Field is invalid",
+    email: "Invalid email format",
+    password:
+      "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number",
+    confirmPassword: "Password do not match",
+  },
   title: "Mentorizer",
   motto: "Skill up. Level up. Together",
   description:

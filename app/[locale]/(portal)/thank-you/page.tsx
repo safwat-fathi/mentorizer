@@ -3,12 +3,12 @@ import { notFound } from "next/navigation";
 type Props = {
   searchParams: {
     email: string;
-    joinAs: string;
+    join_as: string;
   };
 };
 
 const ThankYou = ({ searchParams }: Props) => {
-  if (!searchParams.joinAs || !searchParams.email) {
+  if (!searchParams.join_as || !searchParams.email) {
     notFound();
   }
 
@@ -21,14 +21,14 @@ const ThankYou = ({ searchParams }: Props) => {
 
         <h2 className="text-2xl font-medium">We are currently working on to make it happen really soon.</h2>
 
-        <div className="peer">Peer One</div>
-        <div className="peer-hover:bg-primary">Peer Two</div>
+        {/* <div className="peer">Peer One</div>
+        <div className="peer-hover:bg-primary">Peer Two</div> */}
 
         <h2 className="text-4xl font-medium">Your early join request details:</h2>
 
         <div className="flex flex-col gap-2 bg-primary p-4 text-primary-content">
           <h2 className="text-2xl font-medium">Email: {searchParams.email}</h2>
-          <h2 className="text-2xl font-medium">Join as: {searchParams.joinAs}</h2>
+          <h2 className="text-2xl font-medium">Join as: {searchParams.join_as}</h2>
         </div>
 
         <h2 className="text-2xl font-medium">

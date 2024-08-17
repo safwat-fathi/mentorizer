@@ -8,7 +8,12 @@ import { redirect, RedirectType } from "next/navigation";
 import CONSTANTS from "@/lib/constants";
 import { AuthenticationData } from "@/types/models/auth.model";
 import { FormState } from "@/types/forms";
-import { fillRequiredFields } from "@/lib/utils/forms";
+import { MenteeFormSchema } from "./(auth)/join-us/components/MenteeForm/validations";
+import { ZodError } from "zod";
+import { getScopedI18n } from "@/locales/server";
+import { MentorFormSchema } from "./(auth)/join-us/components/MentorForm/validations";
+import { arrayToObject } from "@/lib/utils/forms";
+import { SheetsService } from "@/lib/services/sheets.service";
 
 export async function setCookieAction(name: string, value: string, options: Partial<ResponseCookie> = {}) {
   cookies().set({
@@ -83,38 +88,117 @@ export async function redirectAction(route: string, type?: RedirectType) {
   redirect(route, type);
 }
 
-export async function joinUsAction(prevState: FormState, formData: FormData): Promise<FormState> {
+export async function joinAsMentor(prevState: FormState, formData: FormData): Promise<FormState> {
+  const tGlobal = await getScopedI18n("global");
+  const tJoinUs = await getScopedI18n("joinUs");
+  const globalError = tGlobal("error.globalError");
+
   try {
-    if (prevState.errors) return prevState;
+    const data = Object.fromEntries(formData);
+    const schema = await MentorFormSchema();
+    const { join_as, email, name, experience, expertise } = schema.parse(data);
 
-    const joinAs = formData.get("join_as") as "mentee" | "mentor";
-    const email = formData.get("email") as string;
-    const name = formData.get("name") as string;
-    const fieldsOfInterest = formData.get("fields_of_interest") as string;
-    const expertise = formData.get("expertise") as string;
-    const yearsOfExperience = formData.get("years_of_experience") as string;
+    const sheetsService = SheetsService.Instance();
+    const result = await sheetsService.addRow({
+      name,
+      email,
+      join_as,
+      experience,
+      expertise,
+    });
 
-    if (!email || !name) return { message: fillRequiredFields, errors: { name: !name, email: !email } };
-
-    if (joinAs === "mentee" && !fieldsOfInterest) {
-      // ? check for required fields of mentee
-      return {
-        message: fillRequiredFields,
-      };
+    if (result) {
+      await setCookieAction(
+        CONSTANTS.REGISTERED,
+        JSON.stringify({
+          name,
+          email,
+          join_as,
+          experience,
+          expertise,
+        })
+      );
     }
-
-    if (joinAs === "mentor" && (!yearsOfExperience || !expertise)) {
-      return {
-        message: fillRequiredFields,
-      };
-    }
-
-    // ? send data to google sheet
 
     return {
-      message: "Thank you for joining us!",
+      success: true,
+      message: tJoinUs("form.success"),
+      data: {
+        name,
+        email,
+        join_as,
+        experience,
+        expertise,
+      },
     };
-  } catch (error) {
-    throw new Error(`Error join us form::${error}`);
+  } catch (error: any) {
+    if (error instanceof ZodError) {
+      return {
+        success: false,
+        message: tGlobal("formErrors.invalidFormData"),
+        errors: arrayToObject(error.issues),
+      };
+    }
+
+    return {
+      success: false,
+      message: globalError,
+    };
+  }
+}
+
+export async function joinAsMentee(prevState: FormState, formData: FormData): Promise<FormState> {
+  const tGlobal = await getScopedI18n("global");
+  const tJoinUs = await getScopedI18n("joinUs");
+  const globalError = tGlobal("error.globalError");
+
+  try {
+    const data = Object.fromEntries(formData);
+    const schema = await MenteeFormSchema();
+    const { join_as, email, name, field_of_interest } = schema.parse(data);
+
+    const sheetsService = SheetsService.Instance();
+    const result = await sheetsService.addRow({
+      name,
+      email,
+      join_as,
+      field_of_interest,
+    });
+
+    if (result) {
+      await setCookieAction(
+        CONSTANTS.REGISTERED,
+        JSON.stringify({
+          name,
+          email,
+          join_as,
+          field_of_interest,
+        })
+      );
+    }
+
+    return {
+      success: true,
+      message: tJoinUs("form.success"),
+      data: {
+        name,
+        email,
+        join_as,
+        field_of_interest,
+      },
+    };
+  } catch (error: any) {
+    if (error instanceof ZodError) {
+      return {
+        success: false,
+        message: tGlobal("formErrors.invalidFormData"),
+        errors: arrayToObject(error.issues),
+      };
+    }
+
+    return {
+      success: false,
+      message: globalError,
+    };
   }
 }

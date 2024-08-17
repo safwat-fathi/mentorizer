@@ -1,19 +1,12 @@
-import {
-  GoogleSpreadsheet,
-  GoogleSpreadsheetWorksheet,
-} from "google-spreadsheet";
+import { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } from "google-spreadsheet";
 
 import { JWT } from "google-auth-library";
 
 import { SheetRow } from "@/types/models/sheets";
 
-const { GOOGLE_SPREADSHEET_ID, GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } =
-  process.env;
+const { GOOGLE_SPREADSHEET_ID, GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } = process.env;
 
-const SCOPES = [
-  "https://www.googleapis.com/auth/spreadsheets",
-  "https://www.googleapis.com/auth/drive.file",
-];
+const SCOPES = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive.file"];
 
 export class SheetsService {
   private static _instance: SheetsService;
@@ -72,10 +65,16 @@ export class SheetsService {
     try {
       await this._loadSheet();
 
-      const { email, joinAs } = row;
+      const { email, join_as, name, experience, expertise, field_of_interest } = row;
 
       if (this._sheet) {
-        const rowData = [email, joinAs];
+        // [name, email, join_as, field_of_interest, experience, expertise]
+
+        const rowData = [name, email, join_as];
+
+        field_of_interest ? rowData.push(field_of_interest) : rowData.push("-");
+        experience ? rowData.push(experience) : null;
+        expertise ? rowData.push(expertise) : null;
 
         await this._sheet.addRow(rowData);
 

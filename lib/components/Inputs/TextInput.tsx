@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { ComponentProps, ReactNode } from "react";
 
 type Props = {
@@ -5,9 +6,20 @@ type Props = {
   icon?: ReactNode;
   containerClassName?: string;
   inputCLassName?: string;
+  error?: string;
 } & ComponentProps<"input">;
 
-const TextInput = ({ containerClassName, inputCLassName, placeholder, id, label, icon, type, ...props }: Props) => {
+const TextInput = ({
+  containerClassName,
+  inputCLassName,
+  placeholder,
+  id,
+  label,
+  error,
+  icon,
+  type,
+  ...props
+}: Props) => {
   return (
     <div role="textbox" className={`relative ${containerClassName}`}>
       <label htmlFor={id} className="sr-only">
@@ -18,7 +30,7 @@ const TextInput = ({ containerClassName, inputCLassName, placeholder, id, label,
         type={type}
         id={id}
         placeholder={placeholder}
-        className={`input input-bordered w-full ${inputCLassName}`}
+        className={clsx("input input-bordered w-full", inputCLassName, { "input-error": error })}
         {...props}
       />
 

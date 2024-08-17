@@ -3,9 +3,10 @@ import { ComponentProps, ReactNode } from "react";
 
 type Props = {
   label?: ReactNode | string;
+  error?: string;
 } & ComponentProps<"textarea">;
 
-const Textarea = ({ id, label, className, ...rest }: Props) => {
+const Textarea = ({ id, label, className, error, ...rest }: Props) => {
   return (
     <div
       className={clsx({
@@ -16,7 +17,11 @@ const Textarea = ({ id, label, className, ...rest }: Props) => {
         {label}
       </label>
 
-      <textarea id={id} className={`textarea textarea-bordered w-full resize-none ${className}`} {...rest}></textarea>
+      <textarea
+        id={id}
+        className={clsx("textarea textarea-bordered w-full resize-none", className, { "textarea-error": error })}
+        {...rest}
+      ></textarea>
     </div>
   );
 };

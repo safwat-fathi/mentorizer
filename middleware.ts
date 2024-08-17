@@ -16,9 +16,12 @@ export async function middleware(req: NextRequest) {
   // const { pathname } = req.nextUrl;
 
   // const isHome = isHomePathname(pathname);
+  // const isJoinUs = pathname.startsWith("/join-us");
+  // const isRegistered = await getCookieAction(CONSTANTS.REGISTERED);
 
-  // if (isHome) {
-  //   return NextResponse.redirect(new URL(`/about`, req.url));
+  // if (isJoinUs && isRegistered) {
+  //   I18nMiddleware(req);
+  //   return NextResponse.redirect(new URL(`/thank-you`, req.url));
   // }
 
   return I18nMiddleware(req);
