@@ -3,11 +3,12 @@
 import Button from "@/lib/components/Button";
 import Select from "@/lib/components/Inputs/Select";
 import TextInput from "@/lib/components/Inputs/TextInput";
-import useApi from "@/lib/hooks/useApi";
+// import useApi from "@/lib/hooks/useApi";
 import { isValidEmail } from "@/lib/utils/validations";
 import { useScopedI18n } from "@/locales/client";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import Link from "next/link";
+
+import { MouseEventHandler, useState } from "react";
 import { toast } from "react-toastify";
 
 // todo: add loading UI
@@ -17,40 +18,33 @@ const CTA = () => {
   const tAbout = useScopedI18n("about");
   const tGlobal = useScopedI18n("global");
 
-  const router = useRouter();
-
   const [email, setEmail] = useState("");
   const [joinAs, setJoinAs] = useState("");
 
-  const { isLoading, mutate } = useApi(`/api/sheets`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      joinAs,
-    }),
-  });
+  // const { isLoading, mutate } = useApi(`/api/sheets`, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({
+  //     email,
+  //     join_as: joinAs,
+  //   }),
+  // });
 
-  const handleJoin = async () => {
+  const handleJoin: MouseEventHandler<HTMLAnchorElement> = async (e) => {
     try {
       if (!email || !joinAs) {
         toast.error("Please fill out all fields");
+        e.preventDefault();
         return;
       }
 
       if (!isValidEmail(email)) {
         toast.error("Please use a valid email");
+        e.preventDefault();
         return;
       }
-
-      await mutate();
-
-      setEmail("");
-      setJoinAs("");
-
-      router.push(`/thank-you?email=${email}&joinAs=${joinAs}`);
     } catch (err: any) {
       toast.error(err.message || "Sorry, something went wrong");
     }
@@ -78,16 +72,16 @@ const CTA = () => {
               options={[
                 { label: "Mentor", value: "mentor" },
                 { label: "Mentee", value: "mentee" },
-                { label: "Company", value: "company" },
+                // { label: "Company", value: "company" },
               ]}
               placeholder={tGlobal("joinAs.placeholder")}
               value={joinAs}
               onChange={(e) => setJoinAs(e.target.value)}
             />
 
-            <Button type="submit" onClick={handleJoin} variant="neutral" loading={isLoading} className="col-span-1">
-              {tAbout("cta.joinUs")}
-            </Button>
+            <Link href={`/joinus?email=${email}&join_as=${joinAs}`} onClick={handleJoin} className="col-span-1">
+              <Button variant="neutral">{tAbout("cta.joinUs")}</Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import comingSoon from "./coming-soon/ar";
 import mentorsGuide from "./guides/mentors/ar";
 import menteesGuide from "./guides/mentees/ar";
 import circlesGuide from "./guides/circles/ar";
-import joinUs from "./join-us/ar";
+import joinUs from "./joinus/ar";
 
 const ar = {
   global,

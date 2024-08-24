@@ -31,7 +31,7 @@ const Navbar = () => {
               className="menu dropdown-content menu-sm z-[1] mt-3 w-40 rounded-box bg-base-100 p-2 shadow"
             >
               <li>
-                <Link href="/join-us?join_as=mentor">{tNavbar("startMentoring")}</Link>
+                <Link href="/joinus?join_as=mentor">{tNavbar("startMentoring")}</Link>
               </li>
               <li>
                 <Link href="/find">{tGlobal("actions.find")}</Link>
@@ -90,7 +90,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/join-us?join_as=mentor">{tNavbar("startMentoring")}</Link>
+              <Link href="/joinus?join_as=mentor">{tNavbar("startMentoring")}</Link>
             </li>
           </ul>
 

@@ -16,7 +16,7 @@ export async function middleware(req: NextRequest) {
   // const { pathname } = req.nextUrl;
 
   // const isHome = isHomePathname(pathname);
-  // const isJoinUs = pathname.startsWith("/join-us");
+  // const isJoinUs = pathname.startsWith("/joinus");
   // const isRegistered = await getCookieAction(CONSTANTS.REGISTERED);
 
   // if (isJoinUs && isRegistered) {

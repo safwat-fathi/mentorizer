@@ -2,7 +2,7 @@ import { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } from "google-spreadshee
 
 import { JWT } from "google-auth-library";
 
-import { SheetRow } from "@/types/models/sheets";
+import { Row, SheetRow } from "@/types/models/sheets";
 
 const { GOOGLE_SPREADSHEET_ID, GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } = process.env;
 
@@ -35,6 +35,14 @@ export class SheetsService {
       if (this._doc) {
         await this._doc.loadInfo();
         this._sheet = this._doc.sheetsByIndex[sheetIndex]; // or use `doc.sheetsById[id]` or `doc.sheetsByTitle[title]`
+        this._sheet.setHeaderRow([
+          "name",
+          "email",
+          "join_as",
+          "field_of_interests",
+          "experience",
+          "expertise",
+        ] as (keyof Row)[]);
       }
     } catch (err) {
       throw new Error(`SheetsService::loadSheet::${err}`);
@@ -61,25 +69,29 @@ export class SheetsService {
     }
   }
 
-  async addRow(row: SheetRow): Promise<boolean> {
+  async addRow(row: Row): Promise<boolean> {
     try {
       await this._loadSheet();
 
-      const { email, join_as, name, experience, expertise, field_of_interest } = row;
-
       if (this._sheet) {
-        // [name, email, join_as, field_of_interest, experience, expertise]
-
-        const rowData = [name, email, join_as];
-
-        field_of_interest ? rowData.push(field_of_interest) : rowData.push("-");
-        experience ? rowData.push(experience) : null;
-        expertise ? rowData.push(expertise) : null;
-
-        await this._sheet.addRow(rowData);
+        await this._sheet.addRow(row);
 
         return true;
       } else return false;
+    } catch (err: any) {
+      throw new Error(`SheetsService::addRow::${err}`);
+    }
+  }
+
+  async searchColumn(columnName: keyof Row, value: string): Promise<SheetRow[]> {
+    try {
+      await this._loadSheet();
+
+      if (this._sheet) {
+        const rows = await this._sheet.getRows<Row>();
+
+        return rows.filter((row) => row.get(columnName) === value);
+      } else return [];
     } catch (err: any) {
       throw new Error(err);
     }

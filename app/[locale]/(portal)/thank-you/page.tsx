@@ -1,3 +1,4 @@
+import { SheetsService } from "@/lib/services/sheets.service";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -7,8 +8,12 @@ type Props = {
   };
 };
 
-const ThankYou = ({ searchParams }: Props) => {
-  if (!searchParams.join_as || !searchParams.email) {
+const sheetService = SheetsService.Instance();
+
+const ThankYou = async ({ searchParams }: Props) => {
+  const rows = await sheetService.searchColumn("email", searchParams.email);
+
+  if (!searchParams.join_as || !searchParams.email || !rows.length) {
     notFound();
   }
 

@@ -8,10 +8,10 @@ import { redirect, RedirectType } from "next/navigation";
 import CONSTANTS from "@/lib/constants";
 import { AuthenticationData } from "@/types/models/auth.model";
 import { FormState } from "@/types/forms";
-import { MenteeFormSchema } from "./(auth)/join-us/components/MenteeForm/validations";
+import { MenteeFormSchema } from "./(auth)/joinus/components/MenteeForm/validations";
 import { ZodError } from "zod";
 import { getScopedI18n } from "@/locales/server";
-import { MentorFormSchema } from "./(auth)/join-us/components/MentorForm/validations";
+import { MentorFormSchema } from "./(auth)/joinus/components/MentorForm/validations";
 import { arrayToObject } from "@/lib/utils/forms";
 import { SheetsService } from "@/lib/services/sheets.service";
 
@@ -155,14 +155,14 @@ export async function joinAsMentee(prevState: FormState, formData: FormData): Pr
   try {
     const data = Object.fromEntries(formData);
     const schema = await MenteeFormSchema();
-    const { join_as, email, name, field_of_interest } = schema.parse(data);
+    const { join_as, email, name, field_of_interests } = schema.parse(data);
 
     const sheetsService = SheetsService.Instance();
     const result = await sheetsService.addRow({
       name,
       email,
       join_as,
-      field_of_interest,
+      field_of_interests,
     });
 
     if (result) {
@@ -172,7 +172,7 @@ export async function joinAsMentee(prevState: FormState, formData: FormData): Pr
           name,
           email,
           join_as,
-          field_of_interest,
+          field_of_interests,
         })
       );
     }
@@ -184,7 +184,7 @@ export async function joinAsMentee(prevState: FormState, formData: FormData): Pr
         name,
         email,
         join_as,
-        field_of_interest,
+        field_of_interests,
       },
     };
   } catch (error: any) {

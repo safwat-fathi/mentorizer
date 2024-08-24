@@ -10,6 +10,6 @@ export const MenteeFormSchema = async () => {
       .string({ required_error: tGlobalFormErrors("required"), invalid_type_error: "Name is only a string" })
       .min(2, { message: tGlobalFormErrors("minLength", { minLength: 2 }) }),
     email: z.string().email({ message: tGlobalFormErrors("email") }),
-    field_of_interest: z.string().min(1, tGlobalFormErrors("minLength", { minLength: 1 })),
+    field_of_interests: z.string().min(1, tGlobalFormErrors("minLength", { minLength: 1 })),
   });
 };

@@ -7,7 +7,7 @@ import TextInput from "@/lib/components/Inputs/TextInput";
 import { useScopedI18n } from "@/locales/client";
 import { FormState } from "@/types/forms";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
@@ -33,6 +33,7 @@ const initialState: FormState = null;
 
 const MenteeForm = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const tGlobalActions = useScopedI18n("global.actions");
 
@@ -41,7 +42,7 @@ const MenteeForm = () => {
   useEffect(() => {
     if (state?.success) {
       const { email, join_as } = state?.data as any;
-      router.push(`/thank-you?email${email}&join_as=${join_as}`);
+      router.push(`/thank-you?email=${email}&join_as=${join_as}`);
     }
   }, [state?.success]);
 
@@ -60,12 +61,18 @@ const MenteeForm = () => {
           placeholder="Enter your full name"
           error={state?.errors?.name}
         />
-        <TextInput name="email" label="Name" placeholder="Enter your email" error={state?.errors?.email} />
+        <TextInput
+          name="email"
+          label="Name"
+          placeholder="Enter your email"
+          defaultValue={searchParams.get("email") || ""}
+          error={state?.errors?.email}
+        />
         <Select
           placeholder="Field Of Interest"
-          name="field_of_interest"
+          name="field_of_interests"
           options={fieldsOfInterestOptions}
-          error={state?.errors?.field_of_interest}
+          error={state?.errors?.field_of_interests}
         />
         <SubmitButton variant="primary">{tGlobalActions("submit")}</SubmitButton>
       </form>
