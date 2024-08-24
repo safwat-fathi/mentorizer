@@ -22,11 +22,13 @@
 
 - [x] **about**
 - [x] **coming soon**
-- [ ] **circles**
+- [x] **circles**
 - [ ] **mentor**
-- [ ] **mentor guide**
-  - add how mentors can be sponsored (sessions / circles)
-- [ ] **circles guide**
+- [x] **mentor guide**
+  - [ ] add how mentors can be sponsored (sessions / circles)
+- [ ] **thank you**
+  - i18n
+- [x] **circles guide**
 - [ ] **companies guide**
   - what benefits can company have?
 - [ ] support

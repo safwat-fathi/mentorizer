@@ -7,7 +7,7 @@ import Select from "../Inputs/Select";
 const LangSwitcher = () => {
   const tGlobal = useScopedI18n("global");
 
-  const changeLocale = useChangeLocale();
+  const changeLocale = useChangeLocale({ preserveSearchParams: true });
   const currentLocale = useCurrentLocale();
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {

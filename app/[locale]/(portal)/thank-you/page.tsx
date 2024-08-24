@@ -21,9 +21,6 @@ const ThankYou = ({ searchParams }: Props) => {
 
         <h2 className="text-2xl font-medium">We are currently working on to make it happen really soon.</h2>
 
-        {/* <div className="peer">Peer One</div>
-        <div className="peer-hover:bg-primary">Peer Two</div> */}
-
         <h2 className="text-4xl font-medium">Your early join request details:</h2>
 
         <div className="flex flex-col gap-2 bg-primary p-4 text-primary-content">
