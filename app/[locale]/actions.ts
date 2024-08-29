@@ -80,7 +80,7 @@ export async function deleteCookieAction(name: string) {
   cookies().delete(name);
 }
 
-export async function revalidateAction(key: any) {
+export async function revalidateAction(key: string) {
   revalidateTag(key);
 }
 

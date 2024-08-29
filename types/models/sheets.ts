@@ -1,5 +1,10 @@
 import { GoogleSpreadsheetRow } from "google-spreadsheet";
 
+export type Test = {
+  name: string;
+  age: any;
+};
+
 export type Row = {
   name: string;
   email: string;
