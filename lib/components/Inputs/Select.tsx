@@ -12,11 +12,7 @@ type Props = {
 
 const Select = ({ className, placeholder, options, error, ...props }: Props) => {
   return (
-    <select
-      className={clsx("select select-bordered w-full pe-8 ps-4", className, { "input-error": error })}
-      defaultValue=""
-      {...props}
-    >
+    <select className={clsx("select select-bordered w-full pe-8 ps-4", className, { "input-error": error })} {...props}>
       {placeholder && (
         <option value="" disabled>
           {placeholder}

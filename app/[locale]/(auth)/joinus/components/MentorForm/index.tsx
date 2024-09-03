@@ -62,6 +62,7 @@ const MentorForm = () => {
           placeholder="Years of experience"
           name="experience"
           error={state?.errors?.experience}
+          defaultValue={searchParams.get("experience") || ""}
         />
 
         <SubmitButton variant="primary" className="col-span-2">

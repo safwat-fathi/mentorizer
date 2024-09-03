@@ -73,6 +73,7 @@ const MenteeForm = () => {
           name="field_of_interests"
           options={fieldsOfInterestOptions}
           error={state?.errors?.field_of_interests}
+          defaultValue={searchParams.get("field_of_interests") || ""}
         />
         <SubmitButton variant="primary">{tGlobalActions("submit")}</SubmitButton>
       </form>

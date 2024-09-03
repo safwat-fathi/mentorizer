@@ -2,7 +2,8 @@ import { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } from "google-spreadshee
 
 import { JWT } from "google-auth-library";
 
-import { Row, SheetRow } from "@/types/models/sheets";
+import { SheetRow } from "@/types/models/sheets.model";
+import { User } from "@/types/models/user.model";
 
 const { GOOGLE_SPREADSHEET_ID, GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } = process.env;
 
@@ -42,7 +43,7 @@ export class SheetsService {
           "field_of_interests",
           "experience",
           "expertise",
-        ] as (keyof Row)[]);
+        ] as (keyof User)[]);
       }
     } catch (err) {
       throw new Error(`SheetsService::loadSheet::${err}`);
@@ -69,7 +70,7 @@ export class SheetsService {
     }
   }
 
-  async addRow(row: Row): Promise<boolean> {
+  async addRow(row: User): Promise<boolean> {
     try {
       await this._loadSheet();
 
@@ -83,12 +84,12 @@ export class SheetsService {
     }
   }
 
-  async searchColumn(columnName: keyof Row, value: string): Promise<SheetRow[]> {
+  async searchColumn(columnName: keyof User, value: string): Promise<SheetRow[]> {
     try {
       await this._loadSheet();
 
       if (this._sheet) {
-        const rows = await this._sheet.getRows<Row>();
+        const rows = await this._sheet.getRows<User>();
 
         return rows.filter((row) => row.get(columnName) === value);
       } else return [];
