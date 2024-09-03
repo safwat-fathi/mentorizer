@@ -7,9 +7,17 @@ export const MenteeFormSchema = async () => {
   return z.object({
     join_as: z.string().optional().default("mentee"),
     name: z
-      .string({ required_error: tGlobalFormErrors("required"), invalid_type_error: "Name is only a string" })
+      .string({
+        required_error: tGlobalFormErrors("required"),
+        invalid_type_error: tGlobalFormErrors("stringOnly"),
+      })
+      .regex(/^[a-zA-Z]+$/, tGlobalFormErrors("lettersOnly"))
       .min(2, { message: tGlobalFormErrors("minLength", { minLength: 2 }) }),
     email: z.string().email({ message: tGlobalFormErrors("email") }),
-    field_of_interests: z.string().min(1, tGlobalFormErrors("minLength", { minLength: 1 })),
+    field_of_interests: z
+      .string({
+        required_error: tGlobalFormErrors("required"),
+      })
+      .min(1, tGlobalFormErrors("minLength", { minLength: 1 })),
   });
 };

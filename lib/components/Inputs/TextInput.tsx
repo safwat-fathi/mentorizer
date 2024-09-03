@@ -40,6 +40,8 @@ const TextInput = ({
           {icon}
         </button>
       </span>
+
+      {error && <p className="not-prose text-error">{error}</p>}
     </div>
   );
 };

@@ -22,6 +22,8 @@ const Textarea = ({ id, label, className, error, ...rest }: Props) => {
         className={clsx("textarea textarea-bordered w-full resize-none", className, { "textarea-error": error })}
         {...rest}
       ></textarea>
+
+      {error && <p className="not-prose text-error">{error}</p>}
     </div>
   );
 };

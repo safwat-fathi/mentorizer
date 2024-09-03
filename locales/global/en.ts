@@ -137,6 +137,7 @@ const en = {
   },
   formErrors: {
     invalidFormData: "Please check the form data",
+    stringOnly: "Only strings are allowed",
     required: "This field is required",
     minLength: "Minimum length is {minLength}",
     maxLength: "Maximum length is {maxLength}",
@@ -148,6 +149,7 @@ const en = {
     password:
       "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number",
     confirmPassword: "Password do not match",
+    lettersOnly: "Only letters are allowed",
   },
   title: "Mentorizer",
   motto: "Skill up. Level up. Together",

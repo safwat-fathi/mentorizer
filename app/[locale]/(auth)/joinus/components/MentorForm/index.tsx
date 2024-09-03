@@ -26,6 +26,7 @@ const MentorForm = () => {
   const searchParams = useSearchParams();
 
   const tGlobalActions = useScopedI18n("global.actions");
+  const tJoinUsForm = useScopedI18n("joinUs.form");
 
   const [state, formAction] = useFormState(joinAsMentor, initialState);
 
@@ -38,28 +39,21 @@ const MentorForm = () => {
 
   return (
     <div className="prose flex h-96 max-w-none flex-col gap-2 dark:prose-invert">
-      <h3 className="font-normal">
-        Please fill required fields to be on our waiting list, As soon as we launch we will get back to you.
-      </h3>
+      <h3 className="font-normal">{tJoinUsForm("fillRequiredFields")}.</h3>
 
       <form action={formAction} className="flex flex-col gap-4">
         <input type="hidden" name="join_as" value="mentor" />
-        <TextInput type="text" name="name" placeholder="Enter your full name" error={state?.errors?.name} />
+        <TextInput type="text" name="name" placeholder={tJoinUsForm("fullName")} error={state?.errors?.name} />
         <TextInput
           name="email"
-          placeholder="Enter your email"
+          placeholder={tJoinUsForm("email")}
           defaultValue={searchParams.get("email") || ""}
           error={state?.errors?.email}
         />
-        <Textarea
-          name="expertise"
-          rows={2}
-          placeholder="Enter your fields of expertise. Use comma (,) for multi entries"
-          error={state?.errors?.expertise}
-        />
+        <Textarea name="expertise" rows={2} placeholder={tJoinUsForm("expertise")} error={state?.errors?.expertise} />
         <Select
           options={experienceOptions}
-          placeholder="Years of experience"
+          placeholder={tJoinUsForm("experience")}
           name="experience"
           error={state?.errors?.experience}
           defaultValue={searchParams.get("experience") || ""}

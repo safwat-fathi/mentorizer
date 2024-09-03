@@ -36,6 +36,7 @@ const MenteeForm = () => {
   const searchParams = useSearchParams();
 
   const tGlobalActions = useScopedI18n("global.actions");
+  const tJoinUsForm = useScopedI18n("joinUs.form");
 
   const [state, formAction] = useFormState(joinAsMentee, initialState);
 
@@ -48,9 +49,7 @@ const MenteeForm = () => {
 
   return (
     <div className="prose flex h-96 max-w-none flex-col gap-2 dark:prose-invert">
-      <h3 className="font-normal">
-        Please fill required fields to be on our waiting list, As soon as we launch we will get back to you.
-      </h3>
+      <h3 className="font-normal">{tJoinUsForm("fillRequiredFields")}.</h3>
 
       <form action={formAction} className="flex flex-col gap-4">
         <input type="hidden" name="join_as" value="mentee" />
@@ -58,19 +57,19 @@ const MenteeForm = () => {
           type="text"
           name="name"
           label="Name"
-          placeholder="Enter your full name"
+          placeholder={tJoinUsForm("fullName")}
           error={state?.errors?.name}
         />
         <TextInput
           name="email"
           label="Name"
-          placeholder="Enter your email"
+          placeholder={tJoinUsForm("email")}
           defaultValue={searchParams.get("email") || ""}
           error={state?.errors?.email}
         />
         <Select
-          placeholder="Field Of Interest"
           name="field_of_interests"
+          placeholder={tJoinUsForm("fieldsOfInterest")}
           options={fieldsOfInterestOptions}
           error={state?.errors?.field_of_interests}
           defaultValue={searchParams.get("field_of_interests") || ""}

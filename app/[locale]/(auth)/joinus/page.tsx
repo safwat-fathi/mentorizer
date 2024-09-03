@@ -5,6 +5,17 @@ import MentorForm from "./components/MentorForm";
 import { notFound } from "next/navigation";
 import { SheetsService } from "@/lib/services/sheets.service";
 import Joined from "./components/Joined";
+import { getScopedI18n } from "@/locales/server";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const tJoinUs = await getScopedI18n("joinUs");
+
+  return {
+    title: tJoinUs("title"),
+    description: tJoinUs("description"),
+  };
+}
 
 type Props = {
   params: {
@@ -19,11 +30,11 @@ type Props = {
 const sheetService = SheetsService.Instance();
 
 const JoinUs = async ({ searchParams }: Props) => {
+  const tJoinUs = await getScopedI18n("joinUs");
+
   const { email, join_as } = searchParams;
 
   const rows = await sheetService.searchColumn("email", email);
-
-  // if (rows.length) return "You have registered already!";
 
   if (!join_as) return notFound();
 
@@ -31,7 +42,7 @@ const JoinUs = async ({ searchParams }: Props) => {
     <main className="container mx-auto flex min-h-screen max-w-md flex-col items-center justify-center gap-10">
       <section>
         <div className="prose flex max-w-none items-center justify-center dark:prose-invert">
-          <h1>Join Us @ Mentorizer</h1>
+          <h1>{tJoinUs("joinUs")}</h1>
         </div>
       </section>
 

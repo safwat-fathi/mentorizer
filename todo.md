@@ -45,3 +45,8 @@
 - [x] **i18n**
 
 ## functional requirements
+
+## Hot Fixes
+
+- [ ] fix after join as mentee redirect to thank you page
+- [ ] fix join us i18n
