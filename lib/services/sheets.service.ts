@@ -4,6 +4,7 @@ import { JWT } from "google-auth-library";
 
 import { SheetRow } from "@/types/models/sheets.model";
 import { User } from "@/types/models/user.model";
+import { replaceNewlines } from "../utils/string";
 
 const { GOOGLE_SPREADSHEET_ID, GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } = process.env;
 
@@ -59,7 +60,7 @@ export class SheetsService {
       // authenticate
       const jwt = new JWT({
         email: GOOGLE_CLIENT_EMAIL,
-        key: GOOGLE_PRIVATE_KEY,
+        key: replaceNewlines(GOOGLE_PRIVATE_KEY),
         scopes: SCOPES,
       });
 
