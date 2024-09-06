@@ -35,18 +35,18 @@ const CTA = () => {
   const handleJoin: MouseEventHandler<HTMLAnchorElement> = async (e) => {
     try {
       if (!email || !joinAs) {
-        toast.error("Please fill out all fields");
+        toast.error(tGlobal("formErrors.fillAllFields"));
         e.preventDefault();
         return;
       }
 
       if (!isValidEmail(email)) {
-        toast.error("Please use a valid email");
+        toast.error(tGlobal("formErrors.email"));
         e.preventDefault();
         return;
       }
     } catch (err: any) {
-      toast.error(err.message || "Sorry, something went wrong");
+      toast.error(err.message || tGlobal("error.globalError"));
     }
   };
 

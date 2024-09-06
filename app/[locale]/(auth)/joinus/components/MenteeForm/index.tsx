@@ -12,7 +12,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
 
-const fieldsOfInterestOptions = [
+const FIELDS_OF_INTEREST_OPTIONS = [
   { label: "Web development", value: "web_development" },
   { label: "Mobile Applications", value: "mobile_applications" },
   { label: "Desktop Applications", value: "desktop_applications" },
@@ -35,20 +35,20 @@ const MenteeForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const tGlobalActions = useScopedI18n("global.actions");
+  const tGlobal = useScopedI18n("global");
   const tJoinUsForm = useScopedI18n("joinUs.form");
 
   const [state, formAction] = useFormState(joinAsMentee, initialState);
 
   useEffect(() => {
     if (state?.success) {
-      const { email, join_as } = state?.data as any;
+      const { email, join_as } = state?.data as { email: string; join_as: string };
       router.push(`/thank-you?email=${email}&join_as=${join_as}`);
     }
   }, [state?.success]);
 
   return (
-    <div className="prose flex h-96 max-w-none flex-col gap-2 dark:prose-invert">
+    <div className="prose flex max-w-none flex-col gap-2 dark:prose-invert">
       <h3 className="font-normal">{tJoinUsForm("fillRequiredFields")}.</h3>
 
       <form action={formAction} className="flex flex-col gap-4">
@@ -57,24 +57,24 @@ const MenteeForm = () => {
           type="text"
           name="name"
           label="Name"
-          placeholder={tJoinUsForm("fullName")}
+          placeholder={tGlobal("form.fullName")}
           error={state?.errors?.name}
         />
         <TextInput
           name="email"
           label="Name"
-          placeholder={tJoinUsForm("email")}
+          placeholder={tGlobal("form.email")}
           defaultValue={searchParams.get("email") || ""}
           error={state?.errors?.email}
         />
         <Select
           name="field_of_interests"
           placeholder={tJoinUsForm("fieldsOfInterest")}
-          options={fieldsOfInterestOptions}
+          options={FIELDS_OF_INTEREST_OPTIONS}
           error={state?.errors?.field_of_interests}
           defaultValue={searchParams.get("field_of_interests") || ""}
         />
-        <SubmitButton variant="primary">{tGlobalActions("submit")}</SubmitButton>
+        <SubmitButton variant="primary">{tGlobal("actions.submit")}</SubmitButton>
       </form>
 
       <p role="status" className={clsx("font-bold", { "text-error": !state?.success, "text-success": state?.success })}>

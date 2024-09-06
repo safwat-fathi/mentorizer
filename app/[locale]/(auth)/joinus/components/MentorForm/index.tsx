@@ -25,7 +25,7 @@ const MentorForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const tGlobalActions = useScopedI18n("global.actions");
+  const tGlobal = useScopedI18n("global");
   const tJoinUsForm = useScopedI18n("joinUs.form");
 
   const [state, formAction] = useFormState(joinAsMentor, initialState);
@@ -38,15 +38,15 @@ const MentorForm = () => {
   }, [state?.success]);
 
   return (
-    <div className="prose flex h-96 max-w-none flex-col gap-2 dark:prose-invert">
+    <div className="prose flex max-w-none flex-col gap-2 dark:prose-invert">
       <h3 className="font-normal">{tJoinUsForm("fillRequiredFields")}.</h3>
 
       <form action={formAction} className="flex flex-col gap-4">
         <input type="hidden" name="join_as" value="mentor" />
-        <TextInput type="text" name="name" placeholder={tJoinUsForm("fullName")} error={state?.errors?.name} />
+        <TextInput type="text" name="name" placeholder={tGlobal("form.fullName")} error={state?.errors?.name} />
         <TextInput
           name="email"
-          placeholder={tJoinUsForm("email")}
+          placeholder={tGlobal("form.email")}
           defaultValue={searchParams.get("email") || ""}
           error={state?.errors?.email}
         />
@@ -60,7 +60,7 @@ const MentorForm = () => {
         />
 
         <SubmitButton variant="primary" className="col-span-2">
-          {tGlobalActions("submit")}
+          {tGlobal("actions.submit")}
         </SubmitButton>
       </form>
 

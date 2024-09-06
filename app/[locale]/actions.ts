@@ -14,6 +14,25 @@ import { getScopedI18n } from "@/locales/server";
 import { MentorFormSchema } from "./(auth)/joinus/components/MentorForm/validations";
 import { arrayToObject } from "@/lib/utils/forms";
 import { SheetsService } from "@/lib/services/sheets.service";
+import { ContactUsFormSchema } from "./(portal)/contact-us/components/ContactUsForm/validations";
+
+const i18n = async () => {
+  const tGlobal = await getScopedI18n("global");
+  const invalidFormDataError = tGlobal("formErrors.invalidFormData");
+  const globalError = tGlobal("error.globalError");
+  const tJoinUs = await getScopedI18n("joinUs");
+  const tContactUs = await getScopedI18n("contactUs");
+  const joinUsFormSuccess = tJoinUs("form.success");
+
+  return {
+    tGlobal,
+    tJoinUs,
+    tContactUs,
+    globalError,
+    invalidFormDataError,
+    joinUsFormSuccess,
+  };
+};
 
 export async function setCookieAction(name: string, value: string, options: Partial<ResponseCookie> = {}) {
   cookies().set({
@@ -89,9 +108,7 @@ export async function redirectAction(route: string, type?: RedirectType) {
 }
 
 export async function joinAsMentor(prevState: FormState, formData: FormData): Promise<FormState> {
-  const tGlobal = await getScopedI18n("global");
-  const tJoinUs = await getScopedI18n("joinUs");
-  const globalError = tGlobal("error.globalError");
+  const { tGlobal, globalError, joinUsFormSuccess, invalidFormDataError } = await i18n();
 
   try {
     const data = Object.fromEntries(formData);
@@ -99,6 +116,13 @@ export async function joinAsMentor(prevState: FormState, formData: FormData): Pr
     const { join_as, email, name, experience, expertise } = schema.parse(data);
 
     const sheetsService = SheetsService.Instance();
+
+    const rows = await sheetsService.searchColumn("email", email);
+
+    if (rows.length) {
+      throw new ZodError([{ code: "custom", path: ["email"], message: tGlobal("formErrors.emailExists") }]);
+    }
+
     const result = await sheetsService.addRow({
       name,
       email,
@@ -122,7 +146,7 @@ export async function joinAsMentor(prevState: FormState, formData: FormData): Pr
 
     return {
       success: true,
-      message: tJoinUs("form.success"),
+      message: joinUsFormSuccess,
       data: {
         name,
         email,
@@ -131,11 +155,47 @@ export async function joinAsMentor(prevState: FormState, formData: FormData): Pr
         expertise,
       },
     };
+  } catch (error: unknown) {
+    if (error instanceof ZodError) {
+      return {
+        success: false,
+        message: invalidFormDataError,
+        errors: arrayToObject(error.issues),
+      };
+    }
+
+    return {
+      success: false,
+      message: globalError,
+    };
+  }
+}
+
+export async function contactUs(prevState: FormState, formData: FormData): Promise<FormState> {
+  const { invalidFormDataError, globalError, tContactUs } = await i18n();
+
+  try {
+    const data = Object.fromEntries(formData);
+    const schema = await ContactUsFormSchema();
+    const { email, message } = schema.parse(data);
+
+    const sheetsService = SheetsService.Instance();
+
+    await sheetsService.addContactUsMessage(email, message);
+
+    return {
+      success: true,
+      message: tContactUs("form.success"),
+      data: {
+        email,
+        message,
+      },
+    };
   } catch (error: any) {
     if (error instanceof ZodError) {
       return {
         success: false,
-        message: tGlobal("formErrors.invalidFormData"),
+        message: invalidFormDataError,
         errors: arrayToObject(error.issues),
       };
     }
@@ -148,9 +208,7 @@ export async function joinAsMentor(prevState: FormState, formData: FormData): Pr
 }
 
 export async function joinAsMentee(prevState: FormState, formData: FormData): Promise<FormState> {
-  const tGlobal = await getScopedI18n("global");
-  const tJoinUs = await getScopedI18n("joinUs");
-  const globalError = tGlobal("error.globalError");
+  const { tGlobal, invalidFormDataError, globalError, joinUsFormSuccess } = await i18n();
 
   try {
     const data = Object.fromEntries(formData);
@@ -158,6 +216,13 @@ export async function joinAsMentee(prevState: FormState, formData: FormData): Pr
     const { join_as, email, name, field_of_interests } = schema.parse(data);
 
     const sheetsService = SheetsService.Instance();
+
+    const rows = await sheetsService.searchColumn("email", email);
+
+    if (rows.length) {
+      throw new ZodError([{ code: "custom", path: ["email"], message: tGlobal("formErrors.emailExists") }]);
+    }
+
     const result = await sheetsService.addRow({
       name,
       email,
@@ -179,7 +244,7 @@ export async function joinAsMentee(prevState: FormState, formData: FormData): Pr
 
     return {
       success: true,
-      message: tJoinUs("form.success"),
+      message: joinUsFormSuccess,
       data: {
         name,
         email,
@@ -191,7 +256,7 @@ export async function joinAsMentee(prevState: FormState, formData: FormData): Pr
     if (error instanceof ZodError) {
       return {
         success: false,
-        message: tGlobal("formErrors.invalidFormData"),
+        message: invalidFormDataError,
         errors: arrayToObject(error.issues),
       };
     }

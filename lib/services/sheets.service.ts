@@ -37,14 +37,6 @@ export class SheetsService {
       if (this._doc) {
         await this._doc.loadInfo();
         this._sheet = this._doc.sheetsByIndex[sheetIndex]; // or use `doc.sheetsById[id]` or `doc.sheetsByTitle[title]`
-        this._sheet.setHeaderRow([
-          "name",
-          "email",
-          "join_as",
-          "field_of_interests",
-          "experience",
-          "expertise",
-        ] as (keyof User)[]);
       }
     } catch (err) {
       throw new Error(`SheetsService::loadSheet::${err}`);
@@ -76,11 +68,34 @@ export class SheetsService {
       await this._loadSheet();
 
       if (this._sheet) {
+        this._sheet.setHeaderRow([
+          "name",
+          "email",
+          "join_as",
+          "field_of_interests",
+          "experience",
+          "expertise",
+        ] as (keyof User)[]);
         await this._sheet.addRow(row);
 
         return true;
       } else return false;
-    } catch (err: any) {
+    } catch (err: unknown) {
+      throw new Error(`SheetsService::addRow::${err}`);
+    }
+  }
+
+  async addContactUsMessage(email: string, message: string): Promise<boolean> {
+    try {
+      await this._loadSheet(1);
+
+      if (this._sheet) {
+        this._sheet.setHeaderRow(["email", "message"]);
+        await this._sheet.addRow({ email, message });
+
+        return true;
+      } else return false;
+    } catch (err: unknown) {
       throw new Error(`SheetsService::addRow::${err}`);
     }
   }
@@ -94,8 +109,8 @@ export class SheetsService {
 
         return rows.filter((row) => row.get(columnName) === value);
       } else return [];
-    } catch (err: any) {
-      throw new Error(err);
+    } catch (err: unknown) {
+      throw new Error(`${err}`);
     }
   }
 }

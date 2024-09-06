@@ -38,10 +38,10 @@ const Footer = async () => {
 
       <nav>
         <h6 className="footer-title">{tGlobal("title")}</h6>
-        <Link href="/about" className="link-hover link capitalize">
+        <Link href="/" className="link-hover link capitalize">
           {tFooter("aboutUs")}
         </Link>
-        <Link href="/contact" className="link-hover link capitalize">
+        <Link href="/contact-us" className="link-hover link capitalize">
           {tFooter("contactUs")}
         </Link>
         {/* <Link href="/coming-soon" className="link-hover link capitalize">

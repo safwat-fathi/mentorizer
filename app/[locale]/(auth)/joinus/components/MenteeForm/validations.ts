@@ -14,10 +14,6 @@ export const MenteeFormSchema = async () => {
       .regex(/^[a-zA-Z]+$/, tGlobalFormErrors("lettersOnly"))
       .min(2, { message: tGlobalFormErrors("minLength", { minLength: 2 }) }),
     email: z.string().email({ message: tGlobalFormErrors("email") }),
-    field_of_interests: z
-      .string({
-        required_error: tGlobalFormErrors("required"),
-      })
-      .min(1, tGlobalFormErrors("minLength", { minLength: 1 })),
+    field_of_interests: z.string().min(1, tGlobalFormErrors("required")),
   });
 };

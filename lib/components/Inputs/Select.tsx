@@ -12,7 +12,7 @@ type Props = {
 
 const Select = ({ className, placeholder, options, error, ...props }: Props) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex w-full flex-col gap-2">
       <select
         className={clsx("select select-bordered w-full pe-8 ps-4", className, { "input-error": error })}
         {...props}

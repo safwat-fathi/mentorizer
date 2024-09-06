@@ -14,10 +14,11 @@ export default function Providers({
   params: { locale: string };
 }>) {
   const isRTL = params.locale === "ar";
+  const toastPosition = isRTL ? "top-left" : "top-right";
 
   return (
     <>
-      <ToastContainer rtl={isRTL} />
+      <ToastContainer rtl={isRTL} position={toastPosition} />
       <I18nProviderClient locale={params.locale} fallback={<Loading />}>
         {children}
       </I18nProviderClient>

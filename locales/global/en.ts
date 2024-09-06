@@ -135,7 +135,12 @@ const en = {
     notFound: "Sorry, resource not found",
     globalError: "Sorry, something went wrong",
   },
+  form: {
+    email: "Email Address",
+    fullName: "Full name",
+  },
   formErrors: {
+    fillAllFields: "Please fill all fields",
     invalidFormData: "Please check the form data",
     stringOnly: "Only strings are allowed",
     required: "This field is required",
@@ -146,6 +151,7 @@ const en = {
     max: "Maximum value is {max}",
     validate: "Field is invalid",
     email: "Invalid email format",
+    emailExists: "Email already exists",
     password:
       "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number",
     confirmPassword: "Password do not match",

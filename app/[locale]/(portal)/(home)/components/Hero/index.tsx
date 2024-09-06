@@ -1,24 +1,24 @@
-import Button from "@/lib/components/Button";
 import Select from "@/lib/components/Inputs/Select";
 import { getScopedI18n } from "@/locales/server";
 import Image from "next/image";
+import Link from "next/link";
+
+const SEARCH_OPTIONS = [
+  { value: "Mentors", label: "Mentors" },
+  { value: "Circles", label: "Circles" },
+  { value: "Internships", label: "Internships" },
+];
+
+const SKILLS_OPTIONS = [
+  { value: "All", label: "All" },
+  { value: "OOP", label: "OOP" },
+  { value: "TypeScript", label: "TypeScript" },
+  { value: "Database", label: "Database" },
+];
 
 const Hero = async () => {
   const tAbout = await getScopedI18n("about");
   const tGlobal = await getScopedI18n("global");
-
-  const SEARCH_OPTIONS = [
-    { value: "Mentors", label: "Mentors" },
-    { value: "Circles", label: "Circles" },
-    { value: "Internships", label: "Internships" },
-  ];
-
-  const SKILLS_OPTIONS = [
-    { value: "All", label: "All" },
-    { value: "OOP", label: "OOP" },
-    { value: "TypeScript", label: "TypeScript" },
-    { value: "Database", label: "Database" },
-  ];
 
   return (
     <section className="hero min-h-[calc(100vh-68px)]">
@@ -34,21 +34,13 @@ const Hero = async () => {
           </h2>
 
           <div className="flex justify-start gap-2">
-            <Select
-              className="max-w-xs"
-              options={SEARCH_OPTIONS}
-              placeholder={`${tGlobal("actions.searchFor")}...`}
-              defaultValue=""
-            />
+            <Select options={SEARCH_OPTIONS} placeholder={`${tGlobal("actions.searchFor")}...`} defaultValue="" />
 
-            <Select
-              className="max-w-xs"
-              options={SKILLS_OPTIONS}
-              placeholder={tAbout("actions.selectSkill")}
-              defaultValue=""
-            />
+            <Select options={SKILLS_OPTIONS} placeholder={tAbout("actions.selectSkill")} defaultValue="" />
 
-            <Button variant="primary">{tAbout("actions.getStarted")}</Button>
+            <Link href="/coming-soon" className="btn btn-primary">
+              {tAbout("actions.getStarted")}
+            </Link>
           </div>
         </div>
 
