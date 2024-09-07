@@ -6,6 +6,7 @@ import menteesGuide from "./guides/mentees/en";
 import circlesGuide from "./guides/circles/en";
 import joinUs from "./joinus/en";
 import contactUs from "./contact-us/en";
+import thankYou from "./thank-you/en";
 
 const en = {
   global,
@@ -16,6 +17,7 @@ const en = {
   circlesGuide,
   joinUs,
   contactUs,
+  thankYou,
 } as const;
 
 export default en;

@@ -4,11 +4,12 @@ import { createContext, PropsWithChildren, useContext, useMemo } from "react";
 
 type TabsContext = {
   name: string;
+  defaultTab?: string;
 };
 
 type Props = {
   name: string;
-  defaultValue?: string;
+  defaultTab?: string;
 };
 
 const TabsContext = createContext<TabsContext>({
@@ -25,12 +26,13 @@ const useTabs = () => {
   return context;
 };
 
-const TabsProvider = ({ name, defaultValue, children }: PropsWithChildren<Props>) => {
+const TabsProvider = ({ name, defaultTab, children }: PropsWithChildren<Props>) => {
   const contextValue = useMemo(
     () => ({
       name,
+      defaultTab,
     }),
-    [name, defaultValue]
+    [name, defaultTab]
   );
 
   return <TabsContext.Provider value={contextValue}>{children}</TabsContext.Provider>;

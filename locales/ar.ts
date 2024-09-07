@@ -6,6 +6,7 @@ import menteesGuide from "./guides/mentees/ar";
 import circlesGuide from "./guides/circles/ar";
 import joinUs from "./joinus/ar";
 import contactUs from "./contact-us/ar";
+import thankYou from "./thank-you/ar";
 
 const ar = {
   global,
@@ -16,6 +17,7 @@ const ar = {
   circlesGuide,
   joinUs,
   contactUs,
+  thankYou,
 } as const;
 
 export default ar;

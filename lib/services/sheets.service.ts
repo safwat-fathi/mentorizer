@@ -6,15 +6,20 @@ import { SheetRow } from "@/types/models/sheets.model";
 import { User } from "@/types/models/user.model";
 import { replaceNewlines } from "../utils/string";
 
+import { isValidEmail } from "../utils/validations";
+
 const { GOOGLE_SPREADSHEET_ID, GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } = process.env;
 
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive.file"];
 
+type CacheKey = string;
+type CacheValue = SheetRow[];
+
 export class SheetsService {
   private static _instance: SheetsService;
-
   private _doc: GoogleSpreadsheet | null = null;
   private _sheet: GoogleSpreadsheetWorksheet | null = null;
+  private _cache: Map<CacheKey, CacheValue> = new Map();
 
   private constructor() {
     this._init();
@@ -36,7 +41,7 @@ export class SheetsService {
     try {
       if (this._doc) {
         await this._doc.loadInfo();
-        this._sheet = this._doc.sheetsByIndex[sheetIndex]; // or use `doc.sheetsById[id]` or `doc.sheetsByTitle[title]`
+        this._sheet = this._doc.sheetsByIndex[Number(sheetIndex)]; // or use `doc.sheetsById[id]` or `doc.sheetsByTitle[title]`
       }
     } catch (err) {
       throw new Error(`SheetsService::loadSheet::${err}`);
@@ -101,6 +106,8 @@ export class SheetsService {
   }
 
   async searchColumn(columnName: keyof User, value: string): Promise<SheetRow[]> {
+    if (!isValidEmail(value)) return [];
+
     try {
       await this._loadSheet();
 

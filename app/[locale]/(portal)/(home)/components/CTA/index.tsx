@@ -79,7 +79,7 @@ const CTA = () => {
               onChange={(e) => setJoinAs(e.target.value)}
             />
 
-            <Link href={`/joinus?email=${email}&join_as=${joinAs}`} onClick={handleJoin} className="col-span-1">
+            <Link href={`/join-us?email=${email}&join_as=${joinAs}`} onClick={handleJoin} className="col-span-1">
               <Button variant="neutral">{tAbout("cta.joinUs")}</Button>
             </Link>
           </div>

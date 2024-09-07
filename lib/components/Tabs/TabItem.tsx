@@ -14,7 +14,7 @@ const TabItem = ({ title, value, children, ...rest }: PropsWithChildren<Props>) 
   const { replace } = useRouter();
 
   const searchParams = useSearchParams();
-  const { name } = useTabs();
+  const { name, defaultTab } = useTabs();
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const params = new URLSearchParams(searchParams);
@@ -34,7 +34,7 @@ const TabItem = ({ title, value, children, ...rest }: PropsWithChildren<Props>) 
         role="tab"
         className="tab"
         aria-label={title}
-        defaultChecked={value === searchParams.get(name)?.toString()}
+        defaultChecked={value === searchParams.get(name)?.toString() || value === defaultTab}
         onChange={handleChange}
         value={value}
       />
