@@ -66,7 +66,7 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link href="/post-internship">{tNavbar("postInternships")}</Link>
+                <Link href="/coming-soon">{tNavbar("postInternships")}</Link>
               </li>
 
               {/* <div className="md:hidden">

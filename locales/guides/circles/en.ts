@@ -1,5 +1,5 @@
 const en = {
-  title: "Circles guide",
+  title: "Mentorizer Circles guide",
   description:
     "Mentorizer Circles, an innovative feature designed to facilitate group learning and collaboration. Mentorizer Circles are small groups of mentees guided by a mentor to explore specific topics, work on projects, and engage in collaborative learning experiences. This guide will help you understand how Mentorizer Circles work, what is expected from mentors and mentees, and how to make the most of this feature",
   introduction:

@@ -24,7 +24,7 @@ const en = {
     circlesGuide: "Circles guide",
     forCompanies: "For companies",
     hostHackathon: "Host hackathon",
-    hostMeetup: "Host meetup",
+    hostMeetup: "Host circle meetup",
   },
   ar: "Arabic",
   en: "English",
