@@ -11,7 +11,7 @@ export const MentorFormSchema = async () => {
         required_error: tGlobalFormErrors("required"),
         invalid_type_error: tGlobalFormErrors("stringOnly"),
       })
-      .regex(/^[a-zA-Z]+$/, tGlobalFormErrors("lettersOnly"))
+      .regex(/^[a-zA-Z ]+$/, tGlobalFormErrors("lettersOnly"))
       .min(2, { message: tGlobalFormErrors("minLength", { minLength: 2 }) }),
     email: z.string().email({ message: tGlobalFormErrors("email") }),
     expertise: z.string().min(1, tGlobalFormErrors("required")),
