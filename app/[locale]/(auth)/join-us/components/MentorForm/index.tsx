@@ -35,7 +35,7 @@ const MentorForm = () => {
       const { email, join_as } = state?.data as any;
       router.push(`/thank-you?email=${email}&join_as=${join_as}`);
     }
-  }, [state?.success]);
+  }, [state?.success, state?.data]);
 
   return (
     <div className="prose flex max-w-none flex-col gap-2 dark:prose-invert">

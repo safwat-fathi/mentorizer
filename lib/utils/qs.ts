@@ -35,11 +35,11 @@ export function createParams(params: IParams): URLSearchParams {
 }
 
 export function revertParamsToObj(params: ReadonlyURLSearchParams): IParams {
-  return [...params?.entries()].reduce(
-    (acc, [key, value]) => {
-      acc[key] = value;
-      return acc;
-    },
-    {} as Record<string, string>
-  );
+  const result: IParams = {};
+
+  for (const [key, value] of params?.entries() ?? []) {
+    result[key] = value;
+  }
+
+  return result;
 }
