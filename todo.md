@@ -29,7 +29,7 @@
 - [ ] **thank you**
   - i18n
 - [x] **circles guide**
-- [ ] **companies guide**
+- [ ] **Corporates guide**
   - what benefits can company have?
 - [ ] support
 - [ ] **contact us**

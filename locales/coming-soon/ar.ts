@@ -8,7 +8,7 @@ const ar = {
   },
   subheading: "نحن نعمل على توفير هذه الميزة قريبًا!",
   suggestionsLabel: "هل لديك مقترحات أو توصيات؟ رجاءا شاركها معنا",
-  suggestionsPlaceholder: "شارك أفكارك ...",
+
   actions: {
     submit: "إرسال",
   },

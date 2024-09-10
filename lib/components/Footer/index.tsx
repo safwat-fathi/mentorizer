@@ -1,16 +1,22 @@
-import { getScopedI18n } from "@/locales/server";
+import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 import Link from "next/link";
 
 const Footer = async () => {
+  const locale = getCurrentLocale();
   const tGlobal = await getScopedI18n("global");
   const tFooter = await getScopedI18n("global.footer");
+
+  const date = new Date();
+  const currentYear = new Intl.DateTimeFormat(locale, { year: "numeric" }).format(date);
 
   return (
     <footer className="footer bg-base-200 p-10 text-base-content">
       <aside>
         <h2 className="font-messiri text-2xl font-semibold">{tGlobal("title")}</h2>
         <p>{tGlobal("motto")}</p>
-        <p>{tFooter("allRightsReserved")} &copy; 2024</p>
+        <p>
+          {tFooter("allRightsReserved")} &copy; {currentYear}
+        </p>
       </aside>
 
       <nav>
@@ -27,7 +33,10 @@ const Footer = async () => {
       </nav>
 
       <nav>
-        <h6 className="footer-title">{tFooter("forCompanies")}</h6>
+        <h6 className="footer-title">{tGlobal("corporates")}</h6>
+        <Link href="/guides/corporate" className="link-hover link capitalize">
+          {tGlobal("whyMentorizer")}
+        </Link>
         <Link href="/coming-soon" className="link-hover link capitalize">
           {tGlobal("navbar.postInternships")}
         </Link>

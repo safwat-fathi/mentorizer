@@ -7,8 +7,9 @@ import LangSwitcher from "../LangSwitcher";
 import Dropdown from "../Dropdown";
 
 const Navbar = () => {
-  const tNavbar = useScopedI18n("global.navbar");
   const tGlobal = useScopedI18n("global");
+  const tNavbar = useScopedI18n("global.navbar");
+  const tFooter = useScopedI18n("global.footer");
 
   return (
     <div role="navigation" className="sticky top-0 z-50 bg-white shadow">
@@ -66,7 +67,21 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link href="/coming-soon">{tNavbar("postInternships")}</Link>
+                <Link href="/guides">{tGlobal("corporates")}</Link>
+                <ul className="p-2">
+                  <li>
+                    <Link href="/guides/corporates">{tGlobal("whyMentorizer")}</Link>
+                  </li>
+                  <li>
+                    <Link href="/coming-soon">{tNavbar("postInternships")}</Link>
+                  </li>
+                  <li>
+                    <Link href="/coming-soon">{tFooter("hostHackathon")}</Link>
+                  </li>
+                  <li>
+                    <Link href="/coming-soon">{tFooter("hostMeetup")}</Link>
+                  </li>
+                </ul>
               </li>
 
               {/* <div className="md:hidden">
@@ -81,6 +96,12 @@ const Navbar = () => {
 									</Link>
 								</li>
 							</div> */}
+
+              <li>
+                <Link href="/contact-us" className="link-hover link capitalize">
+                  {tFooter("contactUs")}
+                </Link>
+              </li>
             </ul>
           </div>
           <Link href="/" className="font-messiri text-xl font-semibold">
@@ -111,6 +132,23 @@ const Navbar = () => {
             </ul>
           </Dropdown>
 
+          <Dropdown trigger={tGlobal("corporates")}>
+            <ul className="z-10 !mt-5 w-52 p-2">
+              <li>
+                <Link href="/guides/corporates">{tGlobal("whyMentorizer")}</Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">{tNavbar("postInternships")}</Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">{tFooter("hostHackathon")}</Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">{tFooter("hostMeetup")}</Link>
+              </li>
+            </ul>
+          </Dropdown>
+
           <Dropdown trigger={tNavbar("guides")}>
             <ul className="z-10 !mt-5 w-52 p-2">
               <li>
@@ -127,7 +165,7 @@ const Navbar = () => {
 
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/coming-soon">{tNavbar("postInternships")}</Link>
+              <Link href="/contact-us">{tFooter("contactUs")}</Link>
             </li>
           </ul>
         </div>

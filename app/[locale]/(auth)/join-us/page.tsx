@@ -49,7 +49,7 @@ const JoinUs = async ({ searchParams }: Props) => {
   if (rows.length) redirect(`/thank-you?email=${email}&join_as=${join_as}`);
 
   return (
-    <main className="container mx-auto flex min-h-screen max-w-lg flex-col items-center gap-4">
+    <main className="container mx-auto flex max-w-lg flex-col items-center gap-4">
       <section className="flex min-h-[10rem] items-center justify-center">
         <div className="prose flex max-w-none items-center justify-center dark:prose-invert">
           <h1>{tJoinUs("joinUs")}</h1>
@@ -57,7 +57,7 @@ const JoinUs = async ({ searchParams }: Props) => {
       </section>
 
       <section>
-        <Tabs className="grid-cols-2" name="join_us" defaultTab={join_as || "mentee"}>
+        <Tabs className="grid-cols-2" name="join_as" defaultTab={join_as || "mentee"}>
           <TabItem value="mentee" title={tJoinUs("form.joinAsMentee")}>
             <MenteeForm />
           </TabItem>

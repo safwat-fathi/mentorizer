@@ -1,5 +1,6 @@
 const ar = {
-  welcome: "أهلا {name}!",
+  whyMentorizer: "لماذا مينتورايزر",
+  corporates: "المؤسسات",
   navbar: {
     startMentoring: "إبدأ بالتوجيه",
     postInternships: "نشر منح تدريبية",
@@ -22,7 +23,6 @@ const ar = {
     menteesGuide: "دليل المتدربين",
     mentorsGuide: "دليل الموجهين",
     circlesGuide: "دليل المجموعات",
-    forCompanies: "خاص بالشركات",
     hostHackathon: "إستضافة هاكاثون",
     hostMeetup: "إستضافة لقاء مجموعة",
   },

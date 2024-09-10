@@ -21,8 +21,8 @@ const ContactUs = async () => {
           <h1 className="text-7xl font-semibold">{tGlobal("title")}</h1>
         </div>
 
-        <div className="prose dark:prose-invert">
-          <h2>Contact Us</h2>
+        <div className="prose capitalize dark:prose-invert">
+          <h2>{tGlobal("footer.contactUs")}</h2>
         </div>
 
         <ContactUsForm />

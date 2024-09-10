@@ -4,6 +4,7 @@ import comingSoon from "./coming-soon/en";
 import mentorsGuide from "./guides/mentors/en";
 import menteesGuide from "./guides/mentees/en";
 import circlesGuide from "./guides/circles/en";
+import corporatesGuide from "./guides/corporates/en";
 import joinUs from "./joinus/en";
 import contactUs from "./contact-us/en";
 import thankYou from "./thank-you/en";
@@ -15,6 +16,7 @@ const en = {
   mentorsGuide,
   menteesGuide,
   circlesGuide,
+  corporatesGuide,
   joinUs,
   contactUs,
   thankYou,

@@ -15,6 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const ComingSoon = async () => {
   const tComingSoon = await getScopedI18n("comingSoon");
+  const tContactUs = await getScopedI18n("contactUs");
   const tGlobal = await getScopedI18n("global");
 
   return (
@@ -41,8 +42,8 @@ const ComingSoon = async () => {
           <div className="flex flex-col items-start gap-4">
             <div className="flex flex-col gap-4">
               <Textarea
-                placeholder={tComingSoon("suggestionsPlaceholder")}
-                label={tComingSoon("suggestionsLabel")}
+                placeholder={tContactUs("suggestionsPlaceholder")}
+                label={tContactUs("suggestionsLabel")}
                 id="message"
                 rows={3}
               />

@@ -1,5 +1,6 @@
 const en = {
-  welcome: "Hello {name}!",
+  whyMentorizer: "Why Mentorizer",
+  corporates: "Corporates",
   navbar: {
     startMentoring: "Start mentoring",
     postInternships: "Post internships",
@@ -22,7 +23,6 @@ const en = {
     menteesGuide: "Mentees guide",
     mentorsGuide: "Mentors guide",
     circlesGuide: "Circles guide",
-    forCompanies: "For companies",
     hostHackathon: "Host hackathon",
     hostMeetup: "Host circle meetup",
   },
