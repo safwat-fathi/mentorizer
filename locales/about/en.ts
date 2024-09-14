@@ -66,7 +66,7 @@ const about = {
       // question1: "What is Mentorizer",
       // answer1:
       //   "Mentorizer is an online platform that connects experienced programmers (mentors) with beginners (mentees) to foster knowledge sharing, skill development, and career growth.",
-      question1: "What Is Mentorizer and How Does It Work",
+      question1: "what is mentorizer and how does it work?",
       answer1: {
         title:
           "Mentorizer is a platform designed to connect professionals seeking guidance with experienced mentors across various industries. Whether you’re looking to develop new skills, navigate a career change, or share your expertise, Mentorizer facilitates meaningful connections through",
@@ -83,15 +83,15 @@ const about = {
           body: "Access a wealth of knowledge through shared resources, articles, and webinars",
         },
       },
-      question2: "What are the qualifications to become a mentor",
+      question2: "what are the qualifications to become a mentor?",
       answer2: "We typically require experience as a software engineer and a passion for guiding others.",
-      question3: "How Can I Become a Mentor on Mentorizer",
+      question3: "how can i become a mentor on mentorizer?",
       answer3:
         "Becoming a mentor on Mentorizer is simple and rewarding! Just sign up on our platform, complete your profile highlighting your expertise and experience, and set your availability. Once approved, you’ll be able to connect with mentees seeking guidance in your areas of specialization. Share your knowledge, grow your network, and make a meaningful impact on others’ careers",
-      question4: "What Are Circles and How Do They Enhance My Experience",
+      question4: "what are circles and how do they enhance my experience?",
       answer4:
         "Circles are community groups within Mentorizer that connect like-minded professionals around specific interests, industries, or goals. They provide a space for collaborative learning, discussions, and networking beyond one-on-one mentorship. Join existing Circles that match your interests or create your own to foster a community. It’s a great way to engage, share insights, and learn from a broader audience",
-      question5: "How Do Circles Differ from Traditional Networking Groups",
+      question5: "how do circles differ from traditional networking groups?",
       answer5: {
         title: "Circles on Mentorizer offer a more focused and interactive experience than traditional networking",
         point1: {
@@ -112,7 +112,7 @@ const about = {
         },
         point5: "Circles are designed to enhance your professional journey through meaningful connections",
       },
-      question6: "How Can Corporations Benefit from Using Mentorizer",
+      question6: "how can corporations benefit from using mentorizer?",
       answer6: {
         title:
           "Mentorizer offers corporations a powerful tool to enhance employee development and engagement. By integrating Mentorizer into your organization, you can",
@@ -138,7 +138,7 @@ const about = {
         },
       },
 
-      // question3: "What kind of support do you offer mentors?",
+      // question3: "what kind of support do you offer mentors?",
       // answer3:
       //   "We provide resources and training materials to help you become an effective mentor. You'll also be part of a supportive community of mentors where you can share experiences and best practices.",
       // answer3:
@@ -146,7 +146,7 @@ const about = {
     },
   },
   cta: {
-    heading: "Ready to join our community?",
+    heading: "ready to join our community?",
     subheading:
       "Take action and be part of a new movement that could change the future of new generations of the tech industry",
     joinUs: "Join us",

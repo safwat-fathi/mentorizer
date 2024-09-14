@@ -7,7 +7,7 @@ const ar = {
     guides: "إرشادات",
     mentors: "موجهين",
     mentees: "متدربين",
-    circles: "مجموعات",
+    circles: "حلقات",
     internships: "منح تدريبية",
     interns: "متدربين",
   },
@@ -22,7 +22,7 @@ const ar = {
     guides: "إرشادات",
     menteesGuide: "دليل المتدربين",
     mentorsGuide: "دليل الموجهين",
-    circlesGuide: "دليل المجموعات",
+    circlesGuide: "دليل الحلقات",
     hostHackathon: "إستضافة هاكاثون",
     hostMeetup: "إستضافة لقاء مجموعة",
   },
@@ -61,6 +61,10 @@ const ar = {
   fullName: {
     label: "الاسم الكامل",
     placeholder: "أدخل الاسم الكامل",
+  },
+  name: {
+    label: "الاسم",
+    placeholder: "أدخل الاسم",
   },
   corporateName: {
     label: "اسم الشركة",
