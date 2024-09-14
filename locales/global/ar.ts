@@ -58,6 +58,18 @@ const ar = {
     label: "البريد الإلكتروني",
     placeholder: "أدخل بريدك الإلكتروني",
   },
+  fullName: {
+    label: "الاسم الكامل",
+    placeholder: "أدخل الاسم الكامل",
+  },
+  corporateName: {
+    label: "اسم الشركة",
+    placeholder: "أدخل اسم الشركة",
+  },
+  username: {
+    label: "اسم المستخدم",
+    placeholder: "أدخل اسم المستخدم",
+  },
   password: {
     label: "كلمة المرور",
     placeholder: "أدخل كلمة المرور",
@@ -70,10 +82,7 @@ const ar = {
     notFound: "عذرا، لم يتم العثور على المصدر المطلوب",
     globalError: "عذرا، حدث خطأ ما",
   },
-  form: {
-    email: "البريد الإلكتروني",
-    fullName: "الاسم الكامل",
-  },
+
   formErrors: {
     fillAllFields: "يرجى ملء جميع الحقول",
     invalidFormData: "يرجى التحقق من صحة البيانات المدخلة",

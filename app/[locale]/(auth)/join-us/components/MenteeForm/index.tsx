@@ -57,13 +57,13 @@ const MenteeForm = () => {
           type="text"
           name="name"
           label="Name"
-          placeholder={tGlobal("form.fullName")}
+          placeholder={tGlobal("fullName.placeholder")}
           error={state?.errors?.name}
         />
         <TextInput
           name="email"
           label="Name"
-          placeholder={tGlobal("form.email")}
+          placeholder={tGlobal("email.placeholder")}
           defaultValue={searchParams.get("email") || ""}
           error={state?.errors?.email}
         />

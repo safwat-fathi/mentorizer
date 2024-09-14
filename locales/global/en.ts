@@ -55,8 +55,20 @@ const en = {
     no: "No",
   },
   email: {
-    label: "Email",
-    placeholder: "Enter your email",
+    label: "Email address",
+    placeholder: "Enter your email address",
+  },
+  fullName: {
+    label: "Full Name",
+    placeholder: "Enter your full name",
+  },
+  corporateName: {
+    label: "Corporate Name",
+    placeholder: "Enter your corporate name",
+  },
+  username: {
+    label: "Username",
+    placeholder: "Enter your username",
   },
   password: {
     label: "Password",
@@ -134,10 +146,6 @@ const en = {
   error: {
     notFound: "Sorry, resource not found",
     globalError: "Sorry, something went wrong",
-  },
-  form: {
-    email: "Email Address",
-    fullName: "Full name",
   },
   formErrors: {
     fillAllFields: "Please fill all fields",

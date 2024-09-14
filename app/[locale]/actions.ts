@@ -177,11 +177,11 @@ export async function contactUs(prevState: FormState, formData: FormData): Promi
   try {
     const data = Object.fromEntries(formData);
     const schema = await ContactUsFormSchema();
-    const { email, message } = schema.parse(data);
+    const { name, email, message } = schema.parse(data);
 
     const sheetsService = SheetsService.Instance();
 
-    await sheetsService.addContactUsMessage(email, message);
+    await sheetsService.addContactUsMessage(name, email, message);
 
     return {
       success: true,

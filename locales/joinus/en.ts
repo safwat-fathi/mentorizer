@@ -4,7 +4,7 @@ const en = {
   joinUs: "Join Us @ Mentorizer",
   form: {
     fillRequiredFields:
-      "Please fill required fields to be on our waiting list, As soon as we launch we will get back to you.",
+      "Please fill required fields to be on our waiting list, As soon as we launch we will get back to you",
     joinAsMentor: "As a Mentor",
     joinAsMentee: "As a Mentee",
     fieldsOfInterest: "Fields of Interest",

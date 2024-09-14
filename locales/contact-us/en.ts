@@ -5,7 +5,7 @@ const en = {
   suggestionsLabel: "Have any suggestions or recommendations? please share it with us",
   suggestionsPlaceholder: "Leave a message or share your thoughts...",
   form: {
-    success: "Thank you for your message. We will get back to you as soon as possible.",
+    success: "Thank you for your message. We will get back to you as soon as possible",
   },
   error: {},
 } as const;

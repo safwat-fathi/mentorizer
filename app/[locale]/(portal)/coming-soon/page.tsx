@@ -1,8 +1,7 @@
-import Textarea from "@/lib/components/Inputs/Textarea";
 import { getScopedI18n } from "@/locales/server";
 import { Metadata } from "next";
 
-import Link from "next/link";
+import ContactUsForm from "../contact-us/components/ContactUsForm";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tComingSoon = await getScopedI18n("comingSoon");
@@ -15,7 +14,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const ComingSoon = async () => {
   const tComingSoon = await getScopedI18n("comingSoon");
-  const tContactUs = await getScopedI18n("contactUs");
   const tGlobal = await getScopedI18n("global");
 
   return (
@@ -30,36 +28,15 @@ const ComingSoon = async () => {
           </h2>
         </div>
 
-        <div className="prose dark:prose-invert">
+        {/* <div className="prose dark:prose-invert">
           <h2>{tComingSoon("subheading")}</h2>
-        </div>
-
-        <div className="flex items-center gap-8">
-          {/* <div>
-            <Image src="/delivery-vespa.png" width={251} height={148} alt="deliver-soon" />
-          </div> */}
-
-          <div className="flex flex-col items-start gap-4">
-            <div className="flex flex-col gap-4">
-              <Textarea
-                placeholder={tContactUs("suggestionsPlaceholder")}
-                label={tContactUs("suggestionsLabel")}
-                id="message"
-                rows={3}
-              />
-
-              <Link href="/" className="btn btn-primary flex">
-                {tComingSoon("actions.submit")}
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* <div>
-          <Link href="/" className="btn btn-outline flex">
-            {tGlobal("actions.goHome")}
-          </Link>
         </div> */}
+
+        <div className="prose dark:prose-invert">
+          <h4>{tComingSoon("suggestionsLabel")}</h4>
+        </div>
+
+        <ContactUsForm />
       </section>
     </main>
   );

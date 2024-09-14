@@ -9,9 +9,103 @@ const FAQ = async () => {
       <h2 className="mb-8 text-center text-5xl font-bold">{tAbout("faq.heading")}</h2>
       <div className="mt-12 flex justify-center">
         <div className="flex w-1/2 flex-col justify-center gap-4">
-          <Collapse group="faq" title={tAbout("faq.questions.question1")} content={tAbout("faq.questions.answer1")} />
+          <Collapse
+            group="faq"
+            title={tAbout("faq.questions.question1")}
+            content={
+              <div className="flex flex-col gap-2">
+                <p>{tAbout("faq.questions.answer1.title")}:</p>
+                <ul className="list-disc px-4">
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer1.point1.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer1.point1.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer1.point2.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer1.point2.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer1.point3.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer1.point3.body")}
+                  </li>
+                </ul>
+              </div>
+            }
+          />
           <Collapse group="faq" title={tAbout("faq.questions.question2")} content={tAbout("faq.questions.answer2")} />
           <Collapse group="faq" title={tAbout("faq.questions.question3")} content={tAbout("faq.questions.answer3")} />
+          <Collapse group="faq" title={tAbout("faq.questions.question4")} content={tAbout("faq.questions.answer4")} />
+          <Collapse
+            group="faq"
+            title={tAbout("faq.questions.question5")}
+            content={
+              <div className="flex flex-col gap-2">
+                <p>{tAbout("faq.questions.answer5.title")}:</p>
+                <ul className="list-disc px-4">
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer5.point1.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer5.point1.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer5.point2.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer5.point2.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer5.point3.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer5.point3.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer5.point4.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer5.point4.body")}
+                  </li>
+                  <li className="list-item">{tAbout("faq.questions.answer5.point5")}</li>
+                </ul>
+              </div>
+            }
+          />
+          <Collapse
+            group="faq"
+            title={tAbout("faq.questions.question6")}
+            content={
+              <div className="flex flex-col gap-2">
+                <p>{tAbout("faq.questions.answer6.title")}:</p>
+                <ul className="list-disc px-4">
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer6.point1.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer6.point1.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer6.point2.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer6.point2.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer6.point3.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer6.point3.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer6.point4.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer6.point4.body")}
+                  </li>
+                  <li className="list-item">
+                    <span className="font-bold">{tAbout("faq.questions.answer6.point5.head")}</span>
+                    {": "}
+                    {tAbout("faq.questions.answer6.point5.body")}
+                  </li>
+                </ul>
+              </div>
+            }
+          />
 
           {/* <Collapse
             group="faq"

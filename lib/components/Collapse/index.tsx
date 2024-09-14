@@ -7,16 +7,11 @@ type Props = {
   defaultOpen?: boolean;
 };
 
-const Collapse = ({
-  title,
-  content,
-  group = "collapse",
-  defaultOpen,
-}: Props) => {
+const Collapse = ({ title, content, group = "collapse", defaultOpen }: Props) => {
   return (
     <div className="collapse collapse-arrow bg-white shadow-lg">
       <input type="radio" name={group} defaultChecked={defaultOpen} />
-      <div className="collapse-title text-xl font-medium">{title}</div>
+      <p className="collapse-title text-xl font-medium capitalize">{title}</p>
       <div className="collapse-content">{content}</div>
     </div>
   );

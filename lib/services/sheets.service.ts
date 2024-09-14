@@ -90,13 +90,13 @@ export class SheetsService {
     }
   }
 
-  async addContactUsMessage(email: string, message: string): Promise<boolean> {
+  async addContactUsMessage(name: string, email: string, message: string): Promise<boolean> {
     try {
       await this._loadSheet(1);
 
       if (this._sheet) {
-        this._sheet.setHeaderRow(["email", "message"]);
-        await this._sheet.addRow({ email, message });
+        this._sheet.setHeaderRow(["name", "email", "message"]);
+        await this._sheet.addRow({ name, email, message });
 
         return true;
       } else return false;

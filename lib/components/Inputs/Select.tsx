@@ -18,7 +18,7 @@ const Select = ({ className, placeholder, options, error, ...props }: Props) => 
         {...props}
       >
         {placeholder && (
-          <option value="" disabled>
+          <option value="" disabled selected className="text-red-500">
             {placeholder}
           </option>
         )}

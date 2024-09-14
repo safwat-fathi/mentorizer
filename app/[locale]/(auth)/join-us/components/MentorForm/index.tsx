@@ -43,10 +43,10 @@ const MentorForm = () => {
 
       <form action={formAction} className="flex flex-col gap-4">
         <input type="hidden" name="join_as" value="mentor" />
-        <TextInput type="text" name="name" placeholder={tGlobal("form.fullName")} error={state?.errors?.name} />
+        <TextInput type="text" name="name" placeholder={tGlobal("fullName.placeholder")} error={state?.errors?.name} />
         <TextInput
           name="email"
-          placeholder={tGlobal("form.email")}
+          placeholder={tGlobal("email.placeholder")}
           defaultValue={searchParams.get("email") || ""}
           error={state?.errors?.email}
         />

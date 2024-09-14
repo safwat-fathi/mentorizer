@@ -63,16 +63,86 @@ const about = {
   faq: {
     heading: "FAQ",
     questions: {
-      question1: "What is Mentorizer?",
-      answer1:
-        "Mentorizer is an online platform that connects experienced programmers (mentors) with beginners (mentees) to foster knowledge sharing, skill development, and career growth.",
-      question2: "What are the qualifications to become a mentor?",
+      // question1: "What is Mentorizer",
+      // answer1:
+      //   "Mentorizer is an online platform that connects experienced programmers (mentors) with beginners (mentees) to foster knowledge sharing, skill development, and career growth.",
+      question1: "What Is Mentorizer and How Does It Work",
+      answer1: {
+        title:
+          "Mentorizer is a platform designed to connect professionals seeking guidance with experienced mentors across various industries. Whether you’re looking to develop new skills, navigate a career change, or share your expertise, Mentorizer facilitates meaningful connections through",
+        point1: {
+          head: "Personalized Matching",
+          body: "Our algorithm suggests mentors or mentees based on your profile, interests, and goals",
+        },
+        point2: {
+          head: "Flexible Engagements",
+          body: "Connect through one-on-one sessions, group discussions, or participate in Circles",
+        },
+        point3: {
+          head: "Resource Sharing",
+          body: "Access a wealth of knowledge through shared resources, articles, and webinars",
+        },
+      },
+      question2: "What are the qualifications to become a mentor",
       answer2: "We typically require experience as a software engineer and a passion for guiding others.",
-      question3: "What kind of support do you offer mentors?",
+      question3: "How Can I Become a Mentor on Mentorizer",
+      answer3:
+        "Becoming a mentor on Mentorizer is simple and rewarding! Just sign up on our platform, complete your profile highlighting your expertise and experience, and set your availability. Once approved, you’ll be able to connect with mentees seeking guidance in your areas of specialization. Share your knowledge, grow your network, and make a meaningful impact on others’ careers",
+      question4: "What Are Circles and How Do They Enhance My Experience",
+      answer4:
+        "Circles are community groups within Mentorizer that connect like-minded professionals around specific interests, industries, or goals. They provide a space for collaborative learning, discussions, and networking beyond one-on-one mentorship. Join existing Circles that match your interests or create your own to foster a community. It’s a great way to engage, share insights, and learn from a broader audience",
+      question5: "How Do Circles Differ from Traditional Networking Groups",
+      answer5: {
+        title: "Circles on Mentorizer offer a more focused and interactive experience than traditional networking",
+        point1: {
+          head: "Targeted Communities",
+          body: "Join groups centered around specific topics, technologies, or career paths",
+        },
+        point2: {
+          head: "Active Engagement",
+          body: "Participate in discussions, Q&A sessions, and collaborative projects",
+        },
+        point3: {
+          head: "Accessibility",
+          body: "Connect with members globally, breaking geographical barriers",
+        },
+        point4: {
+          head: "Value-Driven Content",
+          body: "Access exclusive resources, events, and insights curated for your Circle",
+        },
+        point5: "Circles are designed to enhance your professional journey through meaningful connections",
+      },
+      question6: "How Can Corporations Benefit from Using Mentorizer",
+      answer6: {
+        title:
+          "Mentorizer offers corporations a powerful tool to enhance employee development and engagement. By integrating Mentorizer into your organization, you can",
+        point1: {
+          head: "Foster a Culture of Learning",
+          body: "Encourage continuous learning and skill development through mentorship programs",
+        },
+        point2: {
+          head: "Enhance Employee Performance",
+          body: "Boost employee productivity and motivation through mentorship programs",
+        },
+        point3: {
+          head: "Enhance Employee Retention",
+          body: "Support career growth to boost job satisfaction and reduce turnover",
+        },
+        point4: {
+          head: "Access to a Talent Pool",
+          body: "Connect with professionals outside your organization for fresh perspectives",
+        },
+        point5: {
+          head: "Contact us",
+          body: "To learn more about our corporate solutions and how we can tailor them to your company’s needs",
+        },
+      },
+
+      // question3: "What kind of support do you offer mentors?",
       // answer3:
       //   "We provide resources and training materials to help you become an effective mentor. You'll also be part of a supportive community of mentors where you can share experiences and best practices.",
-      answer3:
-        "You will be part of a supportive community of mentors where you can share experiences and best practices that will enable you to proudly complete your tasks as a mentor",
+      // answer3:
+      //   "You will be part of a supportive community of mentors where you can share experiences and best practices that will enable you to proudly complete your tasks as a mentor",
     },
   },
   cta: {

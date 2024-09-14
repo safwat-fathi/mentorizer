@@ -20,10 +20,14 @@ const ContactUsForm = () => {
   return (
     <div className="flex items-center gap-8">
       <div className="flex w-[30rem] flex-col items-start gap-4">
-        {/* <p className="block text-sm font-medium text-gray-700">{tContactUs("suggestionsLabel")}</p> */}
         {!state?.success ? (
           <form action={formAction} className="flex w-full flex-col gap-4">
-            <TextInput name="email" placeholder={tGlobal("form.email")} error={state?.errors?.email} />
+            <TextInput
+              name="name"
+              placeholder={`${tGlobal("name.placeholder")} / ${tGlobal("corporateName.placeholder")}`}
+              error={state?.errors?.email}
+            />
+            <TextInput name="email" placeholder={tGlobal("email.placeholder")} error={state?.errors?.email} />
             <Textarea
               placeholder={tContactUs("suggestionsPlaceholder")}
               name="message"
