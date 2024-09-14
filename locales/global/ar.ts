@@ -82,6 +82,14 @@ const ar = {
     label: "اسم المؤسسة",
     placeholder: "أدخل اسم المؤسسة",
   },
+  circles: {
+    label: "حلقات",
+    placeholder: "أدخل الحلقات",
+  },
+  internships: {
+    label: "منح تدريبية",
+    placeholder: "أدخل منح تدريبية",
+  },
   username: {
     label: "اسم المستخدم",
     placeholder: "أدخل اسم المستخدم",

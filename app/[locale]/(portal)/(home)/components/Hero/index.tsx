@@ -3,17 +3,52 @@ import { getScopedI18n } from "@/locales/server";
 import Image from "next/image";
 import Link from "next/link";
 
-const SEARCH_OPTIONS = [
-  { value: "Mentors", label: "Mentors" },
-  { value: "Circles", label: "Circles" },
-  { value: "Internships", label: "Internships" },
-];
-
-const SKILLS_OPTIONS = [
+const SKILLS = [
   { value: "All", label: "All" },
   { value: "OOP", label: "OOP" },
   { value: "TypeScript", label: "TypeScript" },
   { value: "Database", label: "Database" },
+  { value: "JavaScript", label: "JavaScript" },
+  { value: "Python", label: "Python" },
+  { value: "Java", label: "Java" },
+  { value: "C#", label: "C#" },
+  { value: "C++", label: "C++" },
+  { value: "Ruby", label: "Ruby" },
+  { value: "PHP", label: "PHP" },
+  { value: "Swift", label: "Swift" },
+  { value: "Kotlin", label: "Kotlin" },
+  { value: "Go", label: "Go" },
+  { value: "Rust", label: "Rust" },
+  { value: "HTML", label: "HTML" },
+  { value: "CSS", label: "CSS" },
+  { value: "React", label: "React" },
+  { value: "Angular", label: "Angular" },
+  { value: "Vue.js", label: "Vue.js" },
+  { value: "Node.js", label: "Node.js" },
+  { value: "Django", label: "Django" },
+  { value: "Flask", label: "Flask" },
+  { value: "Spring", label: "Spring" },
+  { value: "Laravel", label: "Laravel" },
+  { value: "ASP.NET", label: "ASP.NET" },
+  { value: "SQL", label: "SQL" },
+  { value: "NoSQL", label: "NoSQL" },
+  { value: "Git", label: "Git" },
+  { value: "Docker", label: "Docker" },
+  { value: "Kubernetes", label: "Kubernetes" },
+  { value: "AWS", label: "AWS" },
+  { value: "Azure", label: "Azure" },
+  { value: "Google Cloud", label: "Google Cloud" },
+  { value: "Machine Learning", label: "Machine Learning" },
+  { value: "Testing", label: "Testing" },
+  { value: "QA", label: "QA" },
+  { value: "Artificial Intelligence", label: "Artificial Intelligence" },
+  { value: "DevOps", label: "DevOps" },
+  { value: "Blockchain", label: "Blockchain" },
+  { value: "Big Data", label: "Big Data" },
+  { value: "Cybersecurity", label: "Cybersecurity" },
+  { value: "UI/UX Design", label: "UI/UX Design" },
+  { value: "Mobile Development", label: "Mobile Development" },
+  { value: "Embedded Systems", label: "Embedded Systems" },
 ];
 
 const Hero = async () => {
@@ -34,9 +69,17 @@ const Hero = async () => {
           </h2>
 
           <div className="flex justify-start gap-2">
-            <Select options={SEARCH_OPTIONS} placeholder={`${tGlobal("actions.searchFor")}...`} defaultValue="" />
+            <Select
+              options={[
+                { label: tGlobal("mentor.label"), value: "mentors" },
+                { label: tGlobal("circles.label"), value: "circles" },
+                { value: "Internships", label: tGlobal("internships.label") },
+              ]}
+              placeholder={`${tGlobal("actions.searchFor")}...`}
+              defaultValue=""
+            />
 
-            <Select options={SKILLS_OPTIONS} placeholder={tAbout("actions.selectSkill")} defaultValue="" />
+            <Select options={SKILLS} placeholder={tAbout("actions.selectSkill")} defaultValue="" />
 
             <Link href="/coming-soon" className="btn btn-primary">
               {tAbout("actions.getStarted")}

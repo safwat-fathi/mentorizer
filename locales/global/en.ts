@@ -90,6 +90,14 @@ const en = {
     label: "Corporate",
     placeholder: "Enter your corporate",
   },
+  circles: {
+    label: "Circles",
+    placeholder: "Enter your circles",
+  },
+  internships: {
+    label: "Internships",
+    placeholder: "Enter your internships",
+  },
   name: {
     label: "Name",
     placeholder: "Enter your name",
