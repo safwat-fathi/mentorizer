@@ -86,6 +86,10 @@ const en = {
     label: "Mentee",
     placeholder: "Enter your mentee",
   },
+  corporate: {
+    label: "Corporate",
+    placeholder: "Enter your corporate",
+  },
   name: {
     label: "Name",
     placeholder: "Enter your name",

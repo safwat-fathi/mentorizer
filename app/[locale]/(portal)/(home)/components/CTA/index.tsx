@@ -54,8 +54,8 @@ const CTA = () => {
     <section className="bg-primary py-8">
       <div className="container mx-auto">
         <div className="flex flex-col items-center">
-          <h1 className="text-5xl font-bold text-white">{tAbout("cta.heading")}</h1>
-          <p className="max-w-lg py-6 text-white">{tAbout("cta.subheading")}</p>
+          <h1 className="text-5xl font-bold capitalize text-white">{tAbout("cta.heading")}</h1>
+          <p className="max-w-lg py-6 text-center text-white">{tAbout("cta.subheading")}.</p>
 
           <div className="grid grid-cols-4 items-center gap-4">
             <TextInput
@@ -70,9 +70,9 @@ const CTA = () => {
             <Select
               className="col-span-1 max-w-xs"
               options={[
-                { label: "Mentor", value: "mentor" },
-                { label: "Mentee", value: "mentee" },
-                // { label: "Company", value: "company" },
+                { label: tGlobal("mentor.label"), value: "mentor" },
+                { label: tGlobal("mentee.label"), value: "mentee" },
+                { label: tGlobal("corporate.label"), value: "corporate" },
               ]}
               placeholder={tGlobal("joinAs.placeholder")}
               value={joinAs}

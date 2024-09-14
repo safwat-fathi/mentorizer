@@ -66,9 +66,21 @@ const ar = {
     label: "الاسم",
     placeholder: "أدخل الاسم",
   },
+  mentor: {
+    label: "موجه",
+    placeholder: "أدخل موجه",
+  },
+  mentee: {
+    label: "متدرب",
+    placeholder: "أدخل متدرب",
+  },
+  corporate: {
+    label: "مؤسسة",
+    placeholder: "أدخل مؤسسة",
+  },
   corporateName: {
-    label: "اسم الشركة",
-    placeholder: "أدخل اسم الشركة",
+    label: "اسم المؤسسة",
+    placeholder: "أدخل اسم المؤسسة",
   },
   username: {
     label: "اسم المستخدم",
