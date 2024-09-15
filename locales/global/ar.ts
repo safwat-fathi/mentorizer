@@ -1,5 +1,5 @@
 const ar = {
-  whyMentorizer: "لماذا مينتورايزر",
+  whyMentorizer: "لماذا مينتورايزر؟",
   corporates: "المؤسسات",
   navbar: {
     startMentoring: "إبدأ بالتوجيه",

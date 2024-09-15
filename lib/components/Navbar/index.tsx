@@ -29,7 +29,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu dropdown-content menu-sm z-[1] mt-3 w-40 rounded-box bg-base-100 p-2 shadow"
+              className="menu dropdown-content menu-sm z-[1] mt-3 w-56 rounded-box bg-base-100 p-2 shadow"
             >
               <li>
                 <Link href="/join-us?join_as=mentor">{tNavbar("startMentoring")}</Link>
@@ -170,7 +170,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end hidden gap-2 md:flex">
+        <div className="navbar-end flex gap-2">
           <div>
             <LangSwitcher />
           </div>

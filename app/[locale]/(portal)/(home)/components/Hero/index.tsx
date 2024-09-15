@@ -68,18 +68,20 @@ const Hero = async () => {
             <span className="font-bold">{tAbout("subheading.accelerate")} </span> {tAbout("subheading.yourCareer")}.
           </h2>
 
-          <div className="flex justify-start gap-2">
-            <Select
-              options={[
-                { label: tGlobal("mentor.label"), value: "mentors" },
-                { label: tGlobal("circles.label"), value: "circles" },
-                { value: "Internships", label: tGlobal("internships.label") },
-              ]}
-              placeholder={`${tGlobal("actions.searchFor")}...`}
-              defaultValue=""
-            />
+          <div className="flex flex-col justify-start gap-2 md:flex-row">
+            <div className="flex w-full flex-col gap-2 md:flex-row">
+              <Select
+                options={[
+                  { label: tGlobal("mentor.label"), value: "mentors" },
+                  { label: tGlobal("circles.label"), value: "circles" },
+                  { value: "Internships", label: tGlobal("internships.label") },
+                ]}
+                placeholder={`${tGlobal("actions.searchFor")}...`}
+                defaultValue=""
+              />
 
-            <Select options={SKILLS} placeholder={tAbout("actions.selectSkill")} defaultValue="" />
+              <Select options={SKILLS} placeholder={tAbout("actions.selectSkill")} defaultValue="" />
+            </div>
 
             <Link href="/coming-soon" className="btn btn-primary">
               {tAbout("actions.getStarted")}

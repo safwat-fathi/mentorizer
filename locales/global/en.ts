@@ -1,5 +1,5 @@
 const en = {
-  whyMentorizer: "Why Mentorizer",
+  whyMentorizer: "Why Mentorizer?",
   corporates: "Corporates",
   navbar: {
     startMentoring: "Start mentoring",

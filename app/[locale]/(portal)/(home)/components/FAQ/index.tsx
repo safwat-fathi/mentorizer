@@ -8,7 +8,8 @@ const FAQ = async () => {
     <section className="container mx-auto mb-16">
       <h2 className="mb-8 text-center text-5xl font-bold">{tAbout("faq.heading")}</h2>
       <div className="mt-12 flex justify-center">
-        <div className="flex w-1/2 flex-col justify-center gap-4">
+        {/* <div className="flex w-1/2 flex-col justify-center gap-4"> */}
+        <div className="grid w-4/5 grid-cols-1 gap-4 lg:w-1/2">
           <Collapse
             group="faq"
             title={tAbout("faq.questions.question1")}
