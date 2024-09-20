@@ -19,7 +19,7 @@ const Navbar = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 rtl:-scale-x-100"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -67,10 +67,12 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link href="/guides">{tGlobal("corporates")}</Link>
+                <Link href="/guides/organizations" className="capitalize">
+                  {tGlobal("organizations")}
+                </Link>
                 <ul className="p-2">
                   <li>
-                    <Link href="/guides/corporates">{tGlobal("whyMentorizer")}</Link>
+                    <Link href="/guides/organizations">{tGlobal("whyMentorizer")}</Link>
                   </li>
                   <li>
                     <Link href="/coming-soon">{tNavbar("postInternships")}</Link>
@@ -132,10 +134,10 @@ const Navbar = () => {
             </ul>
           </Dropdown>
 
-          <Dropdown trigger={tGlobal("corporates")}>
+          <Dropdown trigger={tGlobal("organizations")} className="capitalize">
             <ul className="z-10 !mt-5 w-52 p-2">
               <li>
-                <Link href="/guides/corporates">{tGlobal("whyMentorizer")}</Link>
+                <Link href="/guides/organizations">{tGlobal("whyMentorizer")}</Link>
               </li>
               <li>
                 <Link href="/coming-soon">{tNavbar("postInternships")}</Link>

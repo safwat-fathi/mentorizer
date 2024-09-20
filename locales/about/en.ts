@@ -1,7 +1,7 @@
 const about = {
   title: "About",
   description:
-    "Mentorizer is an online platform that empowers the next generation of programmers through mentorship. We connect experienced programmers (mentors) with beginners (mentees) to foster knowledge sharing, skill development, and career growth. Corporates can leverage Mentorizer to discover new talent, build strong programming teams and bring current industry knowledge, trends, and best practices into the learning environment for students",
+    "Mentorizer is an online platform that empowers the next generation of programmers through mentorship. We connect experienced programmers (mentors) with beginners (mentees) to foster knowledge sharing, skill development, and career growth. organizations can leverage Mentorizer to discover new talent, build strong programming teams and bring current industry knowledge, trends, and best practices into the learning environment for students",
   actions: {
     selectSkill: "Select skill",
     joinUs: "Join us",
@@ -40,7 +40,7 @@ const about = {
     subheading: "One place. Plenty of opportunities",
     kickStart: "Kickstart your journey by finding internships that suit your skills and interests",
     mentorsRecommendation: "Mentors recommendations can boost your success to get internships",
-    grow: "Grow where you are allowed to make mistakes, learn, gain experience and build your network with leading tech Corporates",
+    grow: "Grow where you are allowed to make mistakes, learn, gain experience and build your network with leading tech organizations",
     beMentored:
       "Be mentored by experienced professionals and gain insights from the real world of software development",
     getPaid: "Get paid while you learn",
@@ -57,7 +57,7 @@ const about = {
     share: "Share your expertise and inspire future software engineers",
     trends: "Mentoring keeps you at the forefront of technological advancements and industry trends",
     develop: "Develop leadership and communication skills",
-    connect: "Connect with fellow mentors, mentees, and Corporates seeking experienced software engineers",
+    connect: "Connect with fellow mentors, mentees, and organizations seeking experienced software engineers",
     learnFrom: "Learn from your mentees, Gain fresh perspectives and insights from the next generation of tech talent",
   },
   faq: {

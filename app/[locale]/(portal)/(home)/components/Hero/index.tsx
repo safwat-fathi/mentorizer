@@ -56,7 +56,7 @@ const Hero = async () => {
   const tGlobal = await getScopedI18n("global");
 
   return (
-    <section className="hero min-h-[calc(100vh-68px)]">
+    <section className="hero min-h-[calc(100vh-68px)] px-2">
       <div className="container hero-content mx-auto flex items-center justify-between text-center">
         <div className="max-w-prose">
           <h1 className="text-start text-5xl font-bold">{tAbout("heading")}</h1>

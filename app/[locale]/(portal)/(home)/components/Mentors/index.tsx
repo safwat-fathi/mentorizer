@@ -5,7 +5,7 @@ const Mentors = async () => {
   const tAbout = await getScopedI18n("about");
 
   return (
-    <section className="container mx-auto mb-16">
+    <section className="container mx-auto mb-16 px-2">
       <div className="mb-10 flex justify-center">
         <div className="flex flex-col gap-4">
           <div className="flex gap-4">

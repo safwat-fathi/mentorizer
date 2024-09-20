@@ -9,7 +9,6 @@ import { useScopedI18n } from "@/locales/client";
 import Link from "next/link";
 
 import { MouseEventHandler, useState } from "react";
-import { toast } from "react-toastify";
 
 // todo: add loading UI
 // todo: redirect to thanks page
@@ -20,6 +19,7 @@ const CTA = () => {
 
   const [email, setEmail] = useState("");
   const [joinAs, setJoinAs] = useState("");
+  const [error, setError] = useState("");
 
   // const { isLoading, mutate } = useApi(`/api/sheets`, {
   //   method: "POST",
@@ -34,53 +34,49 @@ const CTA = () => {
 
   const handleJoin: MouseEventHandler<HTMLAnchorElement> = async (e) => {
     try {
-      if (!email || !joinAs) {
-        toast.error(tGlobal("formErrors.fillAllFields"));
-        e.preventDefault();
-        return;
-      }
-
       if (!isValidEmail(email)) {
-        toast.error(tGlobal("formErrors.email"));
         e.preventDefault();
+
+        setError(tGlobal("formErrors.email"));
         return;
       }
-    } catch (err: any) {
-      toast.error(err.message || tGlobal("error.globalError"));
-    }
+    } catch (err: any) {}
   };
 
   return (
-    <section className="bg-primary py-8">
+    <section className="bg-primary px-2 py-8">
       <div className="container mx-auto">
         <div className="flex flex-col items-center">
           <h1 className="text-5xl font-bold capitalize text-white">{tAbout("cta.heading")}</h1>
           <p className="max-w-lg py-6 text-center text-white">{tAbout("cta.subheading")}.</p>
 
-          <div className="grid grid-cols-4 items-center gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             <TextInput
               label="Email"
               type="email"
-              containerClassName="col-span-2"
+              containerClassName="md:col-span-2"
               placeholder={tGlobal("email.placeholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              error={error}
             />
 
             <Select
-              className="col-span-1 max-w-xs"
+              className="max-w-xs md:col-span-1"
               options={[
                 { label: tGlobal("mentor.label"), value: "mentor" },
                 { label: tGlobal("mentee.label"), value: "mentee" },
-                { label: tGlobal("corporate.label"), value: "corporate" },
+                { label: tGlobal("organization.label"), value: "organization" },
               ]}
               placeholder={tGlobal("joinAs.placeholder")}
               value={joinAs}
               onChange={(e) => setJoinAs(e.target.value)}
             />
 
-            <Link href={`/join-us?email=${email}&join_as=${joinAs}`} onClick={handleJoin} className="col-span-1">
-              <Button variant="neutral">{tAbout("cta.joinUs")}</Button>
+            <Link href={`/join-us?email=${email}&join_as=${joinAs}`} onClick={handleJoin} className="md:col-span-1">
+              <Button variant="neutral" className="w-full">
+                {tAbout("cta.joinUs")}
+              </Button>
             </Link>
           </div>
         </div>

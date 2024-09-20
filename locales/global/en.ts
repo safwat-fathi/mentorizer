@@ -1,6 +1,6 @@
 const en = {
   whyMentorizer: "Why Mentorizer?",
-  corporates: "Corporates",
+  organizations: "organizations",
   navbar: {
     startMentoring: "Start mentoring",
     postInternships: "Post internships",
@@ -62,9 +62,9 @@ const en = {
     label: "Full Name",
     placeholder: "Enter your full name",
   },
-  corporateName: {
-    label: "Corporate Name",
-    placeholder: "Enter your corporate name",
+  organizationName: {
+    label: "organization Name",
+    placeholder: "Enter your organization name",
   },
   username: {
     label: "Username",
@@ -86,9 +86,9 @@ const en = {
     label: "Mentee",
     placeholder: "Enter your mentee",
   },
-  corporate: {
-    label: "Corporate",
-    placeholder: "Enter your corporate",
+  organization: {
+    label: "organization",
+    placeholder: "Enter your organization",
   },
   circles: {
     label: "Circles",

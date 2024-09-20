@@ -1,6 +1,6 @@
 const ar = {
   whyMentorizer: "لماذا مينتورايزر؟",
-  corporates: "المؤسسات",
+  organizations: "المؤسسات",
   navbar: {
     startMentoring: "إبدأ بالتوجيه",
     postInternships: "نشر منح تدريبية",
@@ -74,11 +74,11 @@ const ar = {
     label: "متدرب",
     placeholder: "أدخل متدرب",
   },
-  corporate: {
+  organization: {
     label: "مؤسسة",
     placeholder: "أدخل مؤسسة",
   },
-  corporateName: {
+  organizationName: {
     label: "اسم المؤسسة",
     placeholder: "أدخل اسم المؤسسة",
   },
