@@ -5,6 +5,7 @@ import { El_Messiri, Rubik } from "next/font/google";
 import { ReactNode } from "react";
 import "./globals.css";
 import { AppLocale } from "@/types";
+import Script from "next/script";
 
 const messiri = El_Messiri({ subsets: ["latin"], variable: "--font-messiri" });
 const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik" });
@@ -37,7 +38,21 @@ export default function RootLayout({
 
   return (
     <html lang={locale} dir={dir} data-theme="light" translate="no" className={clsx(messiri.variable, rubik.variable)}>
-      <body className="bg-base-200 font-rubik">{children}</body>
+      <body className="bg-base-200 font-rubik">
+        {children}
+        {/* <noscript>
+          <img
+            src="https://queue.simpleanalyticscdn.com/noscript.gif"
+            alt=""
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </noscript> */}
+      </body>
+      <Script
+        id="simple-analytics"
+        strategy="afterInteractive"
+        src="https://scripts.simpleanalyticscdn.com/latest.js"
+      />
     </html>
   );
 }
